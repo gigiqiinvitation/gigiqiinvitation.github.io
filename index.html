@@ -380,6 +380,28 @@
       padding-bottom: 40px;
       opacity: 0.8;
     }
+	/* Snowfall animation */
+	.snowflake {
+	  position: fixed;
+	  top: -10px;
+	  left: 0;
+	  pointer-events: none;
+	  color: white;
+	  font-size: 1em;
+	  opacity: 0.8;
+	  z-index: 9999;
+	  animation: fall linear infinite;
+	}
+
+	@keyframes fall {
+	  0% {
+		transform: translateY(-10vh);
+	  }
+	  100% {
+		transform: translateY(110vh);
+	  }
+	}
+
   </style>
 </head>
 <body>
@@ -406,12 +428,12 @@
         <div class="hero-divider"></div>
         <div class="hero-info">
           Together with their families,<br />
-          <strong>Qi Chen</strong> and <strong>Gigi You</strong><br />
+          <strong>Qi </strong> and <strong> Gigi </strong><br />
           joyfully invite you to celebrate their wedding.
           <br /><br />
           <strong>Date:</strong> Friday, January 23, 2026<br />
-          <strong>Time:</strong> 4:00 PM<br />
-          <strong>Location:</strong> Bamboo Garden  Brooklyn, NY
+          <strong>Time:</strong> 5:00 PM<br />
+          <strong>Location:</strong> Grand Royal Palace, 5716 7th Ave, Brooklyn, NY 11220
         </div>
         <div class="hero-highlight">
           Reception & dancing to follow
@@ -478,15 +500,15 @@
     // Put your photo URLs + captions here:
     const slidesData = [
       {
-        url: "https://images.pexels.com/photos/169211/pexels-photo-169211.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        url: "https://imgur.com/ePZPshU",
         caption: "From the moment we said hello."
       },
       {
-        url: "https://images.pexels.com/photos/2959192/pexels-photo-2959192.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        url: "https://imgur.com/a/RPmPLcG",
         caption: "A lifetime of adventures awaits."
       },
       {
-        url: "https://images.pexels.com/photos/1024993/pexels-photo-1024993.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        url: "https://imgur.com/a/s8Q9al5",
         caption: "Surrounded by friends, family, and love."
       }
     ];
@@ -570,6 +592,37 @@
       prevSlide();
       startAutoSlide();
     });
+	
+	/***********************
+	 * SNOWFALL ANIMATION
+	 ***********************/
+	function createSnowflake() {
+	  const snowflake = document.createElement("div");
+	  snowflake.classList.add("snowflake");
+	  snowflake.textContent = "❄";
+
+	  // Random horizontal start position
+	  snowflake.style.left = Math.random() * window.innerWidth + "px";
+
+	  // Random size
+	  const size = Math.random() * 12 + 8; // 8–20px
+	  snowflake.style.fontSize = size + "px";
+
+	  // Random fall duration
+	  const duration = Math.random() * 5 + 5; // 5–10 seconds
+	  snowflake.style.animationDuration = duration + "s";
+
+	  // Random opacity
+	  snowflake.style.opacity = Math.random() * 0.7 + 0.3;
+
+	  document.body.appendChild(snowflake);
+
+	  // Remove after animation ends to avoid overflow
+	  setTimeout(() => snowflake.remove(), duration * 1000);
+	}
+
+	// Generate continuous snowfall
+	setInterval(createSnowflake, 200); // a new snowflake every 200ms
 
     /***********************
      * CALENDAR (January 2026)
