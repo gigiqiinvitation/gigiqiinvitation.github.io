@@ -390,7 +390,7 @@
 	  top: -10px;
 	  left: 0;
 	  pointer-events: none;
-	  color: white;
+	  color: #b8eaff;
 	  font-size: 1em;
 	  opacity: 0.8;
 	  z-index: 9999;
@@ -413,7 +413,7 @@
   <!-- Replace the src with your own music file URL (mp3/ogg) -->
   <audio id="bg-music" src="https://github.com/gigiqiinvitation/gigiqiinvitation.github.io/raw/refs/heads/main/Kina%20Grannis%20-%20Can't%20Help%20Falling%20In%20Love%20(From%20Crazy%20Rich%20Asians).mp3" loop></audio>
 
-  <button id="music-toggle" class="music-toggle paused" type="button">
+  <button id="music-toggle" class="music-toggle" type="button">
     <span class="music-note">♪</span>
     <span class="music-label">Play Music</span>
     <span class="music-indicator"></span>
@@ -677,21 +677,26 @@
     const musicToggle = document.getElementById("music-toggle");
     const musicLabel = musicToggle.querySelector(".music-label");
 
-    async function tryAutoplay() {
-      // Many browsers block autoplay with sound unless user interacts.
-      // This will try, and if it fails, the button will stay "Play Music".
-      try {
-        await bgMusic.play();
-        musicToggle.classList.remove("paused");
-        musicLabel.textContent = "Pause Music";
-      } catch (err) {
-        // Autoplay blocked - user needs to click the button.
-        musicToggle.classList.add("paused");
-        musicLabel.textContent = "Play Music";
-      }
-    }
+	async function tryAutoplay() {
+	  try {
+		await bgMusic.play();
+		musicToggle.classList.remove("paused");
+		musicLabel.textContent = "Pause Music";
+	  } catch (err) {
+		// Browser blocked autoplay — wait for first user interaction
+		const unlock = () => {
+		  bgMusic.play();
+		  musicToggle.classList.remove("paused");
+		  musicLabel.textContent = "Pause Music";
+		  document.removeEventListener("click", unlock);
+		  document.removeEventListener("touchstart", unlock);
+		};
 
-    musicToggle.addEventListener("click", () => {
+		document.addEventListener("click", unlock, { once: true });
+		document.addEventListener("touchstart", unlock, { once: true });
+	  }
+	}
+		musicToggle.addEventListener("click", () => {
       if (bgMusic.paused) {
         bgMusic.play();
         musicToggle.classList.remove("paused");
