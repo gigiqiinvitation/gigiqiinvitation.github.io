@@ -26,7 +26,7 @@
     body {
       margin: 0;
       font-family: "Raleway", system-ui, -apple-system, BlinkMacSystemFont;
-      background: linear-gradient(135deg, #faf5f5, #f9ecec);
+      background: #f2e1ed;
       color: var(--text-main);
       min-height: 100vh;
       display: flex;
@@ -66,7 +66,11 @@
       padding: 16px 0 8px;
       animation: fadeIn 1.2s ease-out forwards;
     }
-
+	
+	body, main, .card, header, section, .hero-text, .calendar-section {
+	  text-align: center !important;
+	}
+	
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
