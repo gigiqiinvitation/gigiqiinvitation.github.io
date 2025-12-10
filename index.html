@@ -304,18 +304,20 @@
 
 	.calendar-day.highlight {
 	  position: relative;
-	  font-weight: 600;
-	  color: #3a2b2b; /* keep the number visible */
+	  font-weight: 700;
+	  color: #3a2b2b;          /* keep the 23 visible */
 	}
 
+	/* Transparent heart behind the number */
 	.calendar-day.highlight::before {
 	  content: "❤";
-	  color: #e63946;
-	  font-size: 1.1rem;
 	  position: absolute;
-	  top: -4px;
+	  top: 50%;
 	  left: 50%;
-	  transform: translateX(-50%);
+	  transform: translate(-50%, -50%);
+	  font-size: 1.8rem;       /* size of the heart */
+	  color: rgba(230, 57, 70, 0.28); /* red with transparency */
+	  pointer-events: none;    /* doesn't block clicks */
 	}
 
     .date-input-box {
@@ -398,7 +400,7 @@
 	  top: -10px;
 	  left: 0;
 	  pointer-events: none;
-	  color: #b8eaff;
+	  color: #cbe6f7;
 	  font-size: 1em;
 	  opacity: 0.8;
 	  z-index: 9999;
@@ -475,11 +477,6 @@
       <div>
         <div class="section-title">Mark Your Calendar</div>
         <div class="section-subtitle">Friday, January 23, 2026</div>
-        <p style="font-size: 0.95rem; line-height: 1.6;">
-          We can’t wait to celebrate this special day with you.  
-          Below is a simple calendar view highlighting the wedding date, and a date selector set to
-          <strong>01/23/2026</strong> so you can easily add it to your plans.
-        </p>
 
         <div class="date-input-box">
           <div>Wedding Date</div>
