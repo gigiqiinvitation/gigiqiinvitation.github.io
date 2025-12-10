@@ -411,7 +411,13 @@
 <body>
   <!-- Background music -->
   <!-- Replace the src with your own music file URL (mp3/ogg) -->
-  <audio id="bg-music" src="https://github.com/gigiqiinvitation/gigiqiinvitation.github.io/raw/refs/heads/main/Kina%20Grannis%20-%20Can't%20Help%20Falling%20In%20Love%20(From%20Crazy%20Rich%20Asians).mp3" autoplay loop></audio>
+  <audio id="bg-music" src="https://github.com/gigiqiinvitation/gigiqiinvitation.github.io/raw/refs/heads/main/Kina%20Grannis%20-%20Can't%20Help%20Falling%20In%20Love%20(From%20Crazy%20Rich%20Asians).mp3" loop></audio>
+
+  <button id="music-toggle" class="music-toggle" type="button">
+    <span class="music-note">♪</span>
+    <span class="music-label">Play Music</span>
+    <span class="music-indicator"></span>
+  </button>
 
   <main>
     <header>
@@ -668,14 +674,20 @@
      * MUSIC AUTOPLAY + TOGGLE
      ***********************/
     const bgMusic = document.getElementById("bg-music");
+    const musicToggle = document.getElementById("music-toggle");
+    const musicLabel = musicToggle.querySelector(".music-label");
 
 	async function tryAutoplay() {
 	  try {
 		await bgMusic.play();
+		musicToggle.classList.remove("paused");
+		musicLabel.textContent = "Pause Music";
 	  } catch (err) {
-		// Autoplay blocked — wait for user gesture
+		// Browser blocked autoplay — wait for first user interaction
 		const unlock = () => {
 		  bgMusic.play();
+		  musicToggle.classList.remove("paused");
+		  musicLabel.textContent = "Pause Music";
 		  document.removeEventListener("click", unlock);
 		  document.removeEventListener("touchstart", unlock);
 		};
