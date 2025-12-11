@@ -611,12 +611,7 @@
 		<div class="form-row">
 		  <div class="form-group">
 			<label for="guests" data-i18n="labelGuests"></label>
-			<select id="guests" name="Total Guests">
-			  <option value="1" data-i18n="optionJustMe"></option>
-			  <option value="2" data-i18n="optionPlus1"></option>
-			  <option value="3" data-i18n="optionPlus2"></option>
-			  <option value="4" data-i18n="optionPlus3"></option>
-			</select>
+			<select id="guests" name="Total Guests"></select>
 		  </div>
 		</div>
 
@@ -633,7 +628,34 @@
      * TRANSLATIONS + LANGUAGE
      ***********************/
     let currentLang = "en";
+	
+	function updateGuestOptions() {
+	  const select = document.getElementById("guests");
+	  if (!select) return;
 
+	  // Clear existing options
+	  select.innerHTML = "";
+
+	  const options =
+		currentLang === "en"
+		  ? [
+			  { value: "1", label: "Just me" },
+			  { value: "2", label: "Me + 1" }
+			]
+		  : [
+			  { value: "1", label: "只有我" },
+			  { value: "2", label: "我 + 1" },
+			  { value: "3", label: "我 + 2" },
+			  { value: "4", label: "我 + 3" }
+			];
+
+	  options.forEach(optData => {
+		const opt = document.createElement("option");
+		opt.value = optData.value;
+		opt.textContent = optData.label;
+		select.appendChild(opt);
+	  });
+	}
     const translations = {
       en: {
         title: "Wedding Invitation",
@@ -652,6 +674,8 @@
         labelGuests: "How many guests (including you)?",
         optionJustMe: "Just me",
         optionPlus1: "Me + 1",
+		optionPlus2: "Me + 2",
+		optionPlus3: "Me + 3",
         submitRsvp: "Send RSVP",
         musicPlay: "Play Music",
         musicPause: "Pause Music",
@@ -742,6 +766,7 @@
 
       // Rebuild calendar headings (Sun/Mon vs 日/一 etc.)
       buildCalendar();
+	  updateGuestOptions();
     }
 
     /***********************
