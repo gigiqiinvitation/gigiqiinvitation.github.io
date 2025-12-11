@@ -72,7 +72,7 @@
 	.rsvp-form {
 	  max-width: 480px;
 	  margin: 0 auto;
-	  text-align: left; /* keep labels aligned nicely */
+	  text-align: left;
 	}
 
 	.rsvp-form .form-row {
@@ -379,7 +379,7 @@
 	.calendar-day.highlight {
 	  position: relative;
 	  font-weight: 700;
-	  color: #3a2b2b;          /* keep the 23 visible */
+	  color: #3a2b2b;
 	}
 
 	/* Transparent heart behind the number */
@@ -389,9 +389,9 @@
 	  top: 50%;
 	  left: 50%;
 	  transform: translate(-50%, -50%);
-	  font-size: 1.8rem;       /* size of the heart */
-	  color: rgba(230, 57, 70, 0.28); /* red with transparency */
-	  pointer-events: none;    /* doesn't block clicks */
+	  font-size: 1.8rem;
+	  color: rgba(230, 57, 70, 0.28);
+	  pointer-events: none;
 	}
 
     .date-input-box {
@@ -468,6 +468,7 @@
       padding-bottom: 40px;
       opacity: 0.8;
     }
+
 	/* Snowfall animation */
 	.snowflake {
 	  position: fixed;
@@ -494,80 +495,52 @@
 </head>
 <body>
   <!-- Background music -->
-  <!-- Replace the src with your own music file URL (mp3/ogg) -->
   <audio id="bg-music" src="https://github.com/gigiqiinvitation/gigiqiinvitation.github.io/raw/refs/heads/main/Kina%20Grannis%20-%20Can't%20Help%20Falling%20In%20Love%20(Lyrics).mp3" loop></audio>
 
   <button id="music-toggle" class="music-toggle" type="button">
     <span class="music-note">♪</span>
-    <span class="music-label">Play Music</span>
+    <span class="music-label" data-i18n="musicPlay"></span>
     <span class="music-indicator"></span>
   </button>
 
   <main>
     <header>
-      <div class="title">Wedding Invitation</div>
-      <div class="subtitle">We are getting married</div>
+      <div class="title" data-i18n="title"></div>
+      <div class="subtitle" data-i18n="subtitle"></div>
+
+      <div style="margin-top:10px; font-size:0.85rem;">
+        <button id="lang-en" type="button">English</button>
+        <button id="lang-zh" type="button">中文</button>
+      </div>
     </header>
 
     <!-- Hero / main invite section -->
     <section class="card hero-section">
        <div class="hero-text">
-		<div class="hero-names">Qi & Gigi</div>
-		<!--<img 
-			src="https://i.imgur.com/Rlb2wON.gif" 
-			alt="Wedding GIF2"
-			style="display:block; margin:0 auto 40px auto; height:4em;"
-		  />
-		  <img 
-			src="https://i.imgur.com/PGXLzMK.gif" 
-			alt="Wedding GIF3"
-			style="display:block; margin:0 auto 40px auto; height:4em;"
-		  />
-		  -->
-		  <img 
-			src="https://i.imgur.com/Rlb2wON.gif" 
-			alt="Wedding GIF2"
-			style="display:block; margin:0 auto 40px auto; height:4em;"
-		  />
-		  
-		
-		<div class="hero-info">
-		  With hearts full of love,
-		  Qi & Gigi jollyfully invite you
-		  to celebrate the beginning of their forever.
-		  <br /><br />Please join us as we exchange vows and celebreate with family and friends.
-		  <br />
-		  <br />
+		<div class="hero-names">Qi &amp; Gigi</div>
 
-		  <!-- 🌟 Added GIF here -->
+		<img 
+			src="https://i.imgur.com/Rlb2wON.gif" 
+			alt="Wedding GIF2"
+			style="display:block; margin:0 auto 40px auto; height:4em;"
+		/>
+		
+		<div class="hero-info" data-i18n-html="heroInfo"></div>
+
+		<!-- extra GIF stays same in both languages -->
 		<img 
 			src="https://i.imgur.com/ulKjjQW.gif" 
 			alt="Wedding GIF"
 			style="display:block; margin:0 auto 40px auto; height:4em;"
-		  />
+		/>
 
-		  <strong>日期 Date:</strong><br />
-		  2026年1月23日，星期五<br />
-		  Friday, January 23, 2026<br /><br />
-		  <strong>时间 Time:</strong><br />
-		  6:00 PM<br /><br />
-		  <strong>地点 Location:</strong><br />
-		  皇冠大酒楼<br />
-		   Grand Royal Palace <br />
-		  5716 7th Ave, Brooklyn, NY 11220<br />
-		</div>
-		<br />
-		<br />
 		<div class="hero-badge">
-		  <span>Save the Date • 01 · 23 · 2026</span>
+		  <span data-i18n="saveDate"></span>
 		</div>
-		
-		
 	  </div>
 
       <!-- Slideshow -->
       <div class="slideshow-container">
-        <!-- Slides injected via JavaScript -->
         <div class="slide-controls">
           <button type="button" class="slide-button" id="prev-slide" aria-label="Previous photo">‹</button>
           <button type="button" class="slide-button" id="next-slide" aria-label="Next photo">›</button>
@@ -582,107 +555,217 @@
     <!-- Calendar section -->
     <section class="card calendar-section">
       <div>
-        <div class="section-title">Mark Your Calendar</div>
-        <div class="section-subtitle">Friday, January 23, 2026</div>
+        <div class="section-title" data-i18n="calendarTitle"></div>
+        <div class="section-subtitle" data-i18n="calendarSubtitle"></div>
 
         <div class="date-input-box">
-          <div>结婚日期 Wedding Date</div>
-          <!-- HTML date input set to 2026-01-23 -->
+          <div data-i18n="weddingDateLabel"></div>
           <input type="date" value="2026-01-23" readonly />
         </div>
       </div>
 
       <div>
         <div class="calendar-header">
-          <div class="calendar-month">January</div>
+          <div class="calendar-month" data-i18n="calendarMonth"></div>
           <div class="calendar-year">2026</div>
         </div>
         <div class="calendar-grid" id="calendar-grid">
-          <!-- Calendar created via JS so the highlighted day is easy to change if needed -->
+          <!-- Calendar filled by JS -->
         </div>
       </div>
     </section>
 	
 	<section class="card rsvp-section">
-  <div class="section-title">RSVP</div>
-  <div class="section-subtitle">We'd love to know if you can make it</div>
+	  <div class="section-title" data-i18n="rsvpTitle"></div>
+	  <div class="section-subtitle" data-i18n="rsvpSubtitle"></div>
 
-  <form class="rsvp-form" action="https://formsubmit.co/Gigijy19@gmail.com" method="POST">
-    <!-- FormSubmit options -->
-	<input type="hidden" name="_cc" value="qchen125@gmail.com">
-    <input type="hidden" name="_subject" value="Wedding RSVP">
-    <input type="hidden" name="_template" value="table">
-    <input type="hidden" name="_captcha" value="false">
+	  <form class="rsvp-form" action="https://formsubmit.co/Gigijy19@gmail.com" method="POST">
+		<input type="hidden" name="_cc" value="qchen125@gmail.com">
+		<input type="hidden" name="_subject" value="Wedding RSVP">
+		<input type="hidden" name="_template" value="table">
+		<input type="hidden" name="_captcha" value="false">
 
-    <div class="form-row">
-      <div class="form-group">
-        <label for="guest-name">Name</label>
-        <input type="text" id="guest-name" name="Name" required />
-      </div>
-    </div>
+		<div class="form-row">
+		  <div class="form-group">
+			<label for="guest-name" data-i18n="labelName"></label>
+			<input type="text" id="guest-name" name="Name" required />
+		  </div>
+		</div>
 
-    <div class="form-row">
-      <div class="form-group">
-        <label>Will you be attending?</label>
-        <div class="radio-group">
-          <label>
-            <input type="radio" name="Attending" value="Yes" required />
-            Yes, I will be there
-          </label>
-          <label>
-            <input type="radio" name="Attending" value="No" required />
-            Sorry, I can’t make it
-          </label>
-        </div>
-      </div>
-    </div>
+		<div class="form-row">
+		  <div class="form-group">
+			<label data-i18n="labelAttending"></label>
+			<div class="radio-group">
+			  <label>
+				<input type="radio" name="Attending" value="Yes" required />
+				<span data-i18n="attendYes"></span>
+			  </label>
+			  <label>
+				<input type="radio" name="Attending" value="No" required />
+				<span data-i18n="attendNo"></span>
+			  </label>
+			</div>
+		  </div>
+		</div>
 
-    <div class="form-row">
-      <div class="form-group">
-        <label for="guests">How many guests (including you)?</label>
-        <select id="guests" name="Total Guests">
-          <option value="1">Just me</option>
-          <option value="2">Me + 1</option>
-          <option value="3">Me + 2</option>
-          <option value="4">Me + 3</option>
-        </select>
-      </div>
-    </div>
+		<div class="form-row">
+		  <div class="form-group">
+			<label for="guests" data-i18n="labelGuests"></label>
+			<select id="guests" name="Total Guests">
+			  <option value="1" data-i18n="optionJustMe"></option>
+			  <option value="2" data-i18n="optionPlus1"></option>
+			  <option value="3" data-i18n="optionPlus2"></option>
+			  <option value="4" data-i18n="optionPlus3"></option>
+			</select>
+		  </div>
+		</div>
 
-    <!--<div class="form-row">
-      <div class="form-group">
-        <label for="message">Notes (dietary restrictions, song requests, etc.)</label>
-        <textarea id="message" name="Notes" rows="3"></textarea>
-      </div>
-    </div>-->
+		<button type="submit" class="rsvp-button" data-i18n="submitRsvp"></button>
+	  </form>
+	</section>
 
-    <button type="submit" class="rsvp-button">Send RSVP</button>
-  </form>
-</section>
-
-    <footer>
-      With love, Qi &amp; Gigi
+    <footer data-i18n="footerText">
     </footer>
   </main>
 
   <script>
     /***********************
+     * TRANSLATIONS + LANGUAGE
+     ***********************/
+    let currentLang = "en";
+
+    const translations = {
+      en: {
+        title: "Wedding Invitation",
+        subtitle: "We are getting married",
+        saveDate: "Save the Date • 01 · 23 · 2026",
+        calendarTitle: "Mark Your Calendar",
+        calendarSubtitle: "Friday, January 23, 2026",
+        calendarMonth: "January",
+        weddingDateLabel: "Wedding Date",
+        rsvpTitle: "RSVP",
+        rsvpSubtitle: "We'd love to know if you can make it",
+        labelName: "Name",
+        labelAttending: "Will you be attending?",
+        attendYes: "Yes, I will be there",
+        attendNo: "Sorry, I can’t make it",
+        labelGuests: "How many guests (including you)?",
+        optionJustMe: "Just me",
+        optionPlus1: "Me + 1",
+        optionPlus2: "Me + 2",
+        optionPlus3: "Me + 3",
+        submitRsvp: "Send RSVP",
+        musicPlay: "Play Music",
+        musicPause: "Pause Music",
+        footerText: "With love, Qi & Gigi",
+        heroInfo: `
+          With hearts full of love,<br />
+          Qi &amp; Gigi joyfully invite you<br />
+          to celebrate the beginning of their forever.<br /><br />
+          Please join us as we exchange vows<br />
+          and celebrate with our family and friends.<br /><br />
+          <strong>Date:</strong><br />
+          Friday, January 23, 2026<br /><br />
+          <strong>Time:</strong><br />
+          6:00 PM<br /><br />
+          <strong>Location:</strong><br />
+          Grand Royal Palace<br />
+          5716 7th Ave, Brooklyn, NY 11220<br />
+        `
+      },
+      zh: {
+        title: "婚礼邀请函",
+        subtitle: "我们要结婚啦",
+        saveDate: "请预留日期 • 01 · 23 · 2026",
+        calendarTitle: "在日历上标记这一天",
+        calendarSubtitle: "2026年1月23日 · 星期五",
+        calendarMonth: "一月",
+        weddingDateLabel: "结婚日期",
+        rsvpTitle: "回复出席（RSVP）",
+        rsvpSubtitle: "诚挚期待您的回复",
+        labelName: "姓名",
+        labelAttending: "是否出席？",
+        attendYes: "会出席",
+        attendNo: "不克出席",
+        labelGuests: "出席人数（含您本人）",
+        optionJustMe: "只有我",
+        optionPlus1: "我 + 1",
+        optionPlus2: "我 + 2",
+        optionPlus3: "我 + 3",
+        submitRsvp: "提交回复",
+        musicPlay: "播放音乐",
+        musicPause: "暂停音乐",
+        footerText: "爱你的，Qi & Gigi",
+        heroInfo: `
+          满怀爱意，<br />
+          Qi 与 Gigi 诚挚邀请您<br />
+          一同见证他们幸福旅程的开始。<br /><br />
+          诚邀您与我们一同交换誓言，<br />
+          与家人和朋友共享这份喜悦。<br /><br />
+          <strong>日期：</strong><br />
+          2026年1月23日（星期五）<br /><br />
+          <strong>时间：</strong><br />
+          晚上 6:00<br /><br />
+          <strong>地点：</strong><br />
+          皇冠大酒楼<br />
+          Grand Royal Palace<br />
+          5716 7th Ave, Brooklyn, NY 11220<br />
+        `
+      }
+    };
+
+    function applyTranslations() {
+      // textContent fields
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        const text = translations[currentLang][key];
+        if (typeof text === "string") {
+          el.textContent = text;
+        }
+      });
+
+      // HTML fields (with <br>, <strong>, etc.)
+      document.querySelectorAll("[data-i18n-html]").forEach(el => {
+        const key = el.getAttribute("data-i18n-html");
+        const html = translations[currentLang][key];
+        if (typeof html === "string") {
+          el.innerHTML = html;
+        }
+      });
+
+      // Update slideshow caption language
+      updateCaption();
+
+      // Update music label based on current state
+      const musicLabel = document.querySelector(".music-label");
+      if (bgMusic.paused) {
+        musicLabel.textContent = translations[currentLang].musicPlay;
+      } else {
+        musicLabel.textContent = translations[currentLang].musicPause;
+      }
+
+      // Rebuild calendar headings (Sun/Mon vs 日/一 etc.)
+      buildCalendar();
+    }
+
+    /***********************
      * PHOTO SLIDESHOW
      ***********************/
-
-    // Put your photo URLs + captions here:
     const slidesData = [
       {
         url: "https://i.imgur.com/GFY1oGg.jpeg",
-        caption: "From the moment we said hello."
+        captionEn: "From the moment we said hello.",
+        captionZh: "从我们说出第一声“你好”的那一刻开始。"
       },
       {
         url: "https://i.imgur.com/r7ST0ct.jpeg",
-        caption: "A lifetime of adventures awaits."
+        captionEn: "A lifetime of adventures awaits.",
+        captionZh: "余生的每一次冒险，都想和你一起。"
       },
       {
         url: "https://i.imgur.com/ePZPshU.jpeg",
-        caption: "Surrounded by friends, family, and love."
+        captionEn: "Surrounded by friends, family, and love.",
+        captionZh: "被家人和朋友环绕的每一刻，都是幸福。"
       }
     ];
 
@@ -719,7 +802,8 @@
     }
 
     function updateCaption() {
-      captionTextEl.textContent = slidesData[currentSlideIndex].caption;
+      const langKey = currentLang === "zh" ? "captionZh" : "captionEn";
+      captionTextEl.textContent = slidesData[currentSlideIndex][langKey];
       const dots = dotsContainer.querySelectorAll(".slide-dot");
       dots.forEach((dot, i) => {
         dot.classList.toggle("active", i === currentSlideIndex);
@@ -746,7 +830,7 @@
 
     function startAutoSlide() {
       stopAutoSlide();
-      slideIntervalId = setInterval(nextSlide, 5000); // 5 seconds
+      slideIntervalId = setInterval(nextSlide, 5000);
     }
 
     function stopAutoSlide() {
@@ -774,40 +858,35 @@
 	  snowflake.classList.add("snowflake");
 	  snowflake.textContent = "❄";
 
-	  // Random horizontal start position
 	  snowflake.style.left = Math.random() * window.innerWidth + "px";
-
-	  // Random size
-	  const size = Math.random() * 12 + 8; // 8–20px
+	  const size = Math.random() * 12 + 8;
 	  snowflake.style.fontSize = size + "px";
-
-	  // Random fall duration
-	  const duration = Math.random() * 5 + 5; // 5–10 seconds
+	  const duration = Math.random() * 5 + 5;
 	  snowflake.style.animationDuration = duration + "s";
-
-	  // Random opacity
 	  snowflake.style.opacity = Math.random() * 0.7 + 0.3;
 
 	  document.body.appendChild(snowflake);
-
-	  // Remove after animation ends to avoid overflow
 	  setTimeout(() => snowflake.remove(), duration * 1000);
 	}
 
-	// Generate continuous snowfall
-	setInterval(createSnowflake, 200); // a new snowflake every 200ms
+	setInterval(createSnowflake, 200);
 
     /***********************
      * CALENDAR (January 2026)
      ***********************/
     function buildCalendar() {
       const calendarGrid = document.getElementById("calendar-grid");
-      const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+      if (!calendarGrid) return;
+      calendarGrid.innerHTML = "";
+
+      const daysOfWeek = currentLang === "zh"
+        ? ["日", "一", "二", "三", "四", "五", "六"]
+        : ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
       const year = 2026;
-      const monthIndex = 0; // January = 0
+      const monthIndex = 0; // January
       const highlightDay = 23;
 
-      // Day names
       daysOfWeek.forEach((dayName) => {
         const el = document.createElement("div");
         el.className = "calendar-day-name";
@@ -815,26 +894,22 @@
         calendarGrid.appendChild(el);
       });
 
-      const firstDay = new Date(year, monthIndex, 1).getDay(); // 0-6
+      const firstDay = new Date(year, monthIndex, 1).getDay();
       const daysInMonth = new Date(year, monthIndex + 1, 0).getDate();
 
-      // Leading empty cells
       for (let i = 0; i < firstDay; i++) {
         const emptyCell = document.createElement("div");
         emptyCell.className = "calendar-day empty";
         calendarGrid.appendChild(emptyCell);
       }
 
-      // Actual days
       for (let day = 1; day <= daysInMonth; day++) {
         const dayEl = document.createElement("div");
         dayEl.className = "calendar-day";
         dayEl.textContent = day;
-
         if (day === highlightDay) {
           dayEl.classList.add("highlight");
         }
-
         calendarGrid.appendChild(dayEl);
       }
     }
@@ -850,13 +925,12 @@
 	  try {
 		await bgMusic.play();
 		musicToggle.classList.remove("paused");
-		musicLabel.textContent = "Pause Music";
+		musicLabel.textContent = translations[currentLang].musicPause;
 	  } catch (err) {
-		// Browser blocked autoplay — wait for first user interaction
 		const unlock = () => {
 		  bgMusic.play();
 		  musicToggle.classList.remove("paused");
-		  musicLabel.textContent = "Pause Music";
+		  musicLabel.textContent = translations[currentLang].musicPause;
 		  document.removeEventListener("click", unlock);
 		  document.removeEventListener("touchstart", unlock);
 		};
@@ -865,15 +939,16 @@
 		document.addEventListener("touchstart", unlock, { once: true });
 	  }
 	}
-		musicToggle.addEventListener("click", () => {
+
+    musicToggle.addEventListener("click", () => {
       if (bgMusic.paused) {
         bgMusic.play();
         musicToggle.classList.remove("paused");
-        musicLabel.textContent = "Pause Music";
+        musicLabel.textContent = translations[currentLang].musicPause;
       } else {
         bgMusic.pause();
         musicToggle.classList.add("paused");
-        musicLabel.textContent = "Play Music";
+        musicLabel.textContent = translations[currentLang].musicPlay;
       }
     });
 
@@ -885,6 +960,17 @@
       buildCalendar();
       startAutoSlide();
       tryAutoplay();
+      applyTranslations(); // default EN
+
+      document.getElementById("lang-en").addEventListener("click", () => {
+        currentLang = "en";
+        applyTranslations();
+      });
+
+      document.getElementById("lang-zh").addEventListener("click", () => {
+        currentLang = "zh";
+        applyTranslations();
+      });
     });
   </script>
 </body>
