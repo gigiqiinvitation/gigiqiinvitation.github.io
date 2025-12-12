@@ -475,7 +475,8 @@
 	  top: -10px;
 	  left: 0;
 	  pointer-events: none;
-	  color: #cbe6f7;
+	  color:#ff80b3;
+	  /*color: #cbe6f7;*/
 	  font-size: 1em;
 	  opacity: 0.8;
 	  z-index: 9999;
@@ -915,10 +916,10 @@
 	function createSnowflake() {
 	  const snowflake = document.createElement("div");
 	  snowflake.classList.add("snowflake");
-	  snowflake.textContent = "❄";
+	  snowflake.textContent = "💖";
 
 	  snowflake.style.left = Math.random() * window.innerWidth + "px";
-	  const size = Math.random() * 12 + 8;
+	  const size = Math.random() * 15 + 10;
 	  snowflake.style.fontSize = size + "px";
 	  const duration = Math.random() * 10 + 12;
 	  snowflake.style.animationDuration = duration + "s";
