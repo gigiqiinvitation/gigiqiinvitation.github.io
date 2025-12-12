@@ -889,7 +889,7 @@
 
     function startAutoSlide() {
       stopAutoSlide();
-      slideIntervalId = setInterval(nextSlide, 300);
+      slideIntervalId = setInterval(nextSlide, 5000);
     }
 
     function stopAutoSlide() {
@@ -928,7 +928,7 @@
 	  setTimeout(() => snowflake.remove(), duration * 1000);
 	}
 
-	setInterval(createSnowflake, 500);
+	setInterval(createSnowflake, 300);
 
     /***********************
      * CALENDAR (January 2026)
