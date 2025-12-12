@@ -490,6 +490,32 @@
 		transform: translateY(110vh);
 	  }
 	}
+	
+	/* Language toggle buttons */
+	.lang-toggle button {
+	  font-size: 0.85rem;
+	  padding: 6px 14px;        /* consistent button padding */
+	  min-width: 90px;          /* ensures both buttons are same width */
+	  border: 1px solid #c49c9c;
+	  background: white;
+	  color: #3a2b2b;
+	  border-radius: 8px;
+	  cursor: pointer;
+	  transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+	}
+
+	/* Hover effect */
+	.lang-toggle button:hover {
+	  background: #c49c9c;
+	  color: white;
+	  transform: translateY(-1px);
+	}
+
+	/* Optional: Highlight active language */
+	.lang-toggle button.active {
+	  background: #c49c9c;
+	  color: white;
+	}
 
   </style>
 </head>
@@ -508,7 +534,7 @@
       <div class="title" data-i18n="title"></div>
       <div class="subtitle" data-i18n="subtitle"></div>
 
-      <div style="margin-top:10px; font-size:0.85rem;">
+      <div class="lang-toggle" style="margin-top:10px;">
         <button id="lang-en" type="button">English</button>
         <button id="lang-zh" type="button">中文</button>
       </div>
@@ -743,6 +769,9 @@
           el.textContent = text;
         }
       });
+	  
+	document.getElementById("lang-en").classList.toggle("active", currentLang === "en");
+	document.getElementById("lang-zh").classList.toggle("active", currentLang === "zh");
 
       // HTML fields (with <br>, <strong>, etc.)
       document.querySelectorAll("[data-i18n-html]").forEach(el => {
