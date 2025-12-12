@@ -503,6 +503,14 @@
 	  cursor: pointer;
 	  transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
 	}
+	
+	.countdown {
+	  margin-top: 8px;
+	  font-size: 1rem;
+	  font-weight: 600;
+	  color: #3a2b2b;
+	  letter-spacing: 0.05em;
+	}
 
 	/* Hover effect */
 	.lang-toggle button:hover {
@@ -533,6 +541,7 @@
     <header>
       <div class="title" data-i18n="title"></div>
       <div class="subtitle" data-i18n="subtitle"></div>
+	  <div id="countdown" class="countdown"></div>
 
       <div class="lang-toggle" style="margin-top:10px;">
         <button id="lang-en" type="button">English</button>
@@ -965,6 +974,36 @@
     }
 
     /***********************
+     * Date Countdown
+     ***********************/
+	
+	function updateCountdown() {
+	  const targetDate = new Date("2026-01-23T00:00:00");
+	  const now = new Date();
+	  const diff = targetDate - now;
+
+	  if (diff <= 0) {
+		document.getElementById("countdown").textContent = currentLang === "zh"
+		  ? "今天就是我们的婚礼！"
+		  : "Today is our wedding day!";
+		return;
+	  }
+
+	  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+	  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+	  const mins = Math.floor((diff / (1000 * 60)) % 60);
+	  const secs = Math.floor((diff / 1000) % 60);
+
+	  // English / Chinese versions
+	  const textEn = `${days} Days ${hours} Hours ${mins} Minutes ${secs} Seconds`;
+	  const textZh = `${days}天 ${hours}小时 ${mins}分钟 ${secs}秒`;
+
+	  document.getElementById("countdown").textContent =
+		currentLang === "zh" ? textZh : textEn;
+	}
+
+
+    /***********************
      * MUSIC AUTOPLAY + TOGGLE
      ***********************/
     const bgMusic = document.getElementById("bg-music");
@@ -1011,6 +1050,9 @@
       startAutoSlide();
       tryAutoplay();
       applyTranslations(); // default EN
+	  // 🔥 start countdown
+	  updateCountdown();
+	  setInterval(updateCountdown, 1000);
 
       document.getElementById("lang-en").addEventListener("click", () => {
         currentLang = "en";
