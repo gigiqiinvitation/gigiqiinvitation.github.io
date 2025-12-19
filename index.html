@@ -19,9 +19,7 @@
       --text-main: #3a2b2b;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -33,10 +31,8 @@
       flex-direction: column;
       align-items: center;
     }
-	
-	.hero-badge span {
-	  color: black !important;
-	}
+
+    .hero-badge span { color: black !important; }
 
     main {
       width: 100%;
@@ -55,101 +51,90 @@
     }
 
     @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(12px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-	
-	.rsvp-section {
-	  text-align: center;
-	}
 
-	.rsvp-form {
-	  max-width: 480px;
-	  margin: 0 auto;
-	  text-align: left;
-	}
+    .rsvp-section { text-align: center; }
 
-	.rsvp-form .form-row {
-	  margin-bottom: 12px;
-	}
+    .rsvp-form {
+      max-width: 480px;
+      margin: 0 auto;
+      text-align: left; /* keep form content left-aligned */
+    }
 
-	.rsvp-form .form-group label {
-	  display: block;
-	  font-size: 0.85rem;
-	  margin-bottom: 4px;
-	  letter-spacing: 0.08em;
-	  text-transform: uppercase;
-	  color: #7f6e6e;
-	}
+    .rsvp-form .form-row { margin-bottom: 12px; }
 
-	.rsvp-form input[type="text"],
-	.rsvp-form select,
-	.rsvp-form textarea {
-	  width: 100%;
-	  padding: 8px 10px;
-	  border-radius: 10px;
-	  border: 1px solid #e0c9c9;
-	  font-family: inherit;
-	  font-size: 0.95rem;
-	  box-sizing: border-box;
-	}
+    .rsvp-form .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      margin-bottom: 4px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #7f6e6e;
+    }
 
-	.rsvp-form textarea {
-	  resize: vertical;
-	}
+    .rsvp-form input[type="text"],
+    .rsvp-form input[type="email"],
+    .rsvp-form input[type="tel"],
+    .rsvp-form select,
+    .rsvp-form textarea {
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid #e0c9c9;
+      font-family: inherit;
+      font-size: 0.95rem;
+      box-sizing: border-box;
+    }
 
-	.radio-group {
-	  display: flex;
-	  flex-direction: column;
-	  gap: 4px;
-	  font-size: 0.9rem;
-	}
+    .rsvp-form textarea { resize: vertical; }
 
-	.radio-group input[type="radio"] {
-	  margin-right: 6px;
-	}
+    .radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 0.9rem;
+    }
 
-	.rsvp-button {
-	  margin-top: 10px;
-	  padding: 10px 22px;
-	  border-radius: 999px;
-	  border: none;
-	  background: #c49c9c;
-	  color: #fff;
-	  font-size: 0.95rem;
-	  cursor: pointer;
-	  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15);
-	  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
-	}
+    .radio-group input[type="radio"] { margin-right: 6px; }
 
-	.rsvp-button:hover {
-	  background: #a57b7b;
-	  transform: translateY(-1px);
-	  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.18);
-	}
+    .rsvp-button {
+      margin-top: 10px;
+      padding: 10px 22px;
+      border-radius: 999px;
+      border: none;
+      background: #c49c9c;
+      color: #fff;
+      font-size: 0.95rem;
+      cursor: pointer;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+
+    .rsvp-button:hover {
+      background: #a57b7b;
+      transform: translateY(-1px);
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.18);
+    }
 
     header {
       text-align: center;
       padding: 16px 0 8px;
       animation: fadeIn 1.2s ease-out forwards;
     }
-	
-	body, main, .card, header, section, .hero-text, .calendar-section {
-	  text-align: center !important;
-	}
-	
+
+    /* Keep overall layout centered BUT do NOT force RSVP form to center */
+    body, main, .card, header, section, .hero-text, .calendar-section {
+      text-align: center !important;
+    }
+    .rsvp-form { text-align: left !important; } /* <-- important fix so labels/fields stay normal */
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
 
-	
     .title {
       font-family: "Playfair Display", serif;
       font-weight: 700;
@@ -174,14 +159,10 @@
     }
 
     @media (max-width: 768px) {
-      .hero-section {
-        grid-template-columns: 1fr;
-      }
+      .hero-section { grid-template-columns: 1fr; }
     }
 
-    .hero-text {
-      padding: 16px;
-    }
+    .hero-text { padding: 16px; }
 
     .hero-names {
       font-family: "Playfair Display", serif;
@@ -201,9 +182,7 @@
       line-height: 1.6;
     }
 
-    .hero-info strong {
-      font-weight: 600;
-    }
+    .hero-info strong { font-weight: 600; }
 
     .hero-highlight {
       margin-top: 16px;
@@ -248,9 +227,7 @@
       background-size: cover;
     }
 
-    .slide.active {
-      opacity: 1;
-    }
+    .slide.active { opacity: 1; }
 
     .slide-overlay {
       position: absolute;
@@ -272,10 +249,7 @@
       gap: 8px;
     }
 
-    .slide-dot-container {
-      display: flex;
-      gap: 6px;
-    }
+    .slide-dot-container { display: flex; gap: 6px; }
 
     .slide-dot {
       width: 8px;
@@ -285,9 +259,7 @@
       background: transparent;
     }
 
-    .slide-dot.active {
-      background: #fff;
-    }
+    .slide-dot.active { background: #fff; }
 
     .slide-controls {
       position: absolute;
@@ -328,9 +300,7 @@
     }
 
     @media (max-width: 768px) {
-      .calendar-section {
-        grid-template-columns: 1fr;
-      }
+      .calendar-section { grid-template-columns: 1fr; }
     }
 
     .calendar-grid {
@@ -372,32 +342,26 @@
       border-radius: 999px;
     }
 
-    .calendar-day.empty {
-      opacity: 0.5;
+    .calendar-day.empty { opacity: 0.5; }
+
+    .calendar-day.highlight {
+      position: relative;
+      font-weight: 700;
+      color: #3a2b2b;
     }
 
-	.calendar-day.highlight {
-	  position: relative;
-	  font-weight: 700;
-	  color: #3a2b2b;
-	}
-
-	/* Transparent heart behind the number */
-	.calendar-day.highlight::before {
-	  content: "❤";
-	  position: absolute;
-	  top: 50%;
-	  left: 50%;
-	  transform: translate(-50%, -50%);
-	  font-size: 1.8rem;
-	  color: rgba(230, 57, 70, 0.28);
-	  pointer-events: none;
-	}
-
-    .date-input-box {
-      margin-top: 14px;
-      font-size: 0.85rem;
+    .calendar-day.highlight::before {
+      content: "❤";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1.8rem;
+      color: rgba(230, 57, 70, 0.28);
+      pointer-events: none;
     }
+
+    .date-input-box { margin-top: 14px; font-size: 0.85rem; }
 
     .date-input-box input[type="date"] {
       margin-top: 6px;
@@ -454,13 +418,9 @@
       background: #56ef7f;
     }
 
-    .music-toggle.paused .music-indicator {
-      background: #f98c8c;
-    }
+    .music-toggle.paused .music-indicator { background: #f98c8c; }
 
-    .music-note {
-      font-size: 1.1rem;
-    }
+    .music-note { font-size: 1.1rem; }
 
     footer {
       font-size: 0.75rem;
@@ -469,67 +429,58 @@
       opacity: 0.8;
     }
 
-	/* Snowfall animation */
-	.snowflake {
-	  position: fixed;
-	  top: -10px;
-	  left: 0;
-	  pointer-events: none;
-	  color:#FFFFFF;
-	  /*color: #b3e5fc;
-	  color:#ff80b3;
-	  color: #cbe6f7;*/
-	  font-size: 1em;
-	  opacity: 0.8;
-	  z-index: 9999;
-	  animation: fall linear infinite;
-	}
+    /* Snowfall animation */
+    .snowflake {
+      position: fixed;
+      top: -10px;
+      left: 0;
+      pointer-events: none;
+      color: #FFFFFF;
+      font-size: 1em;
+      opacity: 0.8;
+      z-index: 9999;
+      animation: fall linear infinite;
+    }
 
-	@keyframes fall {
-	  0% {
-		transform: translateY(-10vh);
-	  }
-	  100% {
-		transform: translateY(110vh);
-	  }
-	}
-	
-	/* Language toggle buttons */
-	.lang-toggle button {
-	  font-size: 0.85rem;
-	  padding: 6px 14px;        /* consistent button padding */
-	  min-width: 90px;          /* ensures both buttons are same width */
-	  border: 1px solid #c49c9c;
-	  background: white;
-	  color: #3a2b2b;
-	  border-radius: 8px;
-	  cursor: pointer;
-	  transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
-	}
-	
-	.countdown {
-	  margin-top: 8px;
-	  font-size: 1rem;
-	  font-weight: 600;
-	  color: #3a2b2b;
-	  letter-spacing: 0.05em;
-	}
+    @keyframes fall {
+      0% { transform: translateY(-10vh); }
+      100% { transform: translateY(110vh); }
+    }
 
-	/* Hover effect */
-	.lang-toggle button:hover {
-	  background: #c49c9c;
-	  color: white;
-	  transform: translateY(-1px);
-	}
+    /* Language toggle buttons */
+    .lang-toggle button {
+      font-size: 0.85rem;
+      padding: 6px 14px;
+      min-width: 90px;
+      border: 1px solid #c49c9c;
+      background: white;
+      color: #3a2b2b;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+    }
 
-	/* Optional: Highlight active language */
-	.lang-toggle button.active {
-	  background: #c49c9c;
-	  color: white;
-	}
+    .countdown {
+      margin-top: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #3a2b2b;
+      letter-spacing: 0.05em;
+    }
 
+    .lang-toggle button:hover {
+      background: #c49c9c;
+      color: white;
+      transform: translateY(-1px);
+    }
+
+    .lang-toggle button.active {
+      background: #c49c9c;
+      color: white;
+    }
   </style>
 </head>
+
 <body>
   <!-- Background music -->
   <audio id="bg-music" src="https://github.com/gigiqiinvitation/gigiqiinvitation.github.io/raw/refs/heads/main/Kina%20Grannis%20-%20Can't%20Help%20Falling%20In%20Love%20(Lyrics).mp3" loop></audio>
@@ -544,7 +495,7 @@
     <header>
       <div class="title" data-i18n="title"></div>
       <div class="subtitle" data-i18n="subtitle"></div>
-	  <div id="countdown" class="countdown"></div>
+      <div id="countdown" class="countdown"></div>
 
       <div class="lang-toggle" style="margin-top:10px;">
         <button id="lang-en" type="button">English</button>
@@ -554,28 +505,27 @@
 
     <!-- Hero / main invite section -->
     <section class="card hero-section">
-       <div class="hero-text">
-		<div class="hero-names">Qi &amp; Gigi</div>
+      <div class="hero-text">
+        <div class="hero-names">Qi &amp; Gigi</div>
 
-		<img 
-			src="https://i.imgur.com/Rlb2wON.gif" 
-			alt="Wedding GIF2"
-			style="display:block; margin:0 auto 40px auto; height:4em;"
-		/>
-		
-		<div class="hero-info" data-i18n-html="heroInfo"></div>
+        <img
+          src="https://i.imgur.com/Rlb2wON.gif"
+          alt="Wedding GIF2"
+          style="display:block; margin:0 auto 40px auto; height:4em;"
+        />
 
-		<!-- extra GIF stays same in both languages -->
-		<img 
-			src="https://i.imgur.com/ulKjjQW.gif" 
-			alt="Wedding GIF"
-			style="display:block; margin:0 auto 40px auto; height:4em;"
-		/>
+        <div class="hero-info" data-i18n-html="heroInfo"></div>
 
-		<div class="hero-badge">
-		  <span data-i18n="saveDate"></span>
-		</div>
-	  </div>
+        <img
+          src="https://i.imgur.com/ulKjjQW.gif"
+          alt="Wedding GIF"
+          style="display:block; margin:0 auto 40px auto; height:4em;"
+        />
+
+        <div class="hero-badge">
+          <span data-i18n="saveDate"></span>
+        </div>
+      </div>
 
       <!-- Slideshow -->
       <div class="slideshow-container">
@@ -607,72 +557,72 @@
           <div class="calendar-month" data-i18n="calendarMonth"></div>
           <div class="calendar-year">2026</div>
         </div>
-        <div class="calendar-grid" id="calendar-grid">
-          <!-- Calendar filled by JS -->
-        </div>
+        <div class="calendar-grid" id="calendar-grid"></div>
       </div>
     </section>
-	
-	<section class="card rsvp-section">
-	  <div class="section-title" data-i18n="rsvpTitle"></div>
-	  <div class="section-subtitle" data-i18n="rsvpSubtitle"></div>
 
-	  <form class="rsvp-form" action="https://formsubmit.co/Gigijy19@gmail.com" method="POST">
-		<input type="hidden" name="_cc" value="qchen125@gmail.com">
-		<input type="hidden" name="_subject" value="Wedding RSVP">
-		<input type="hidden" name="_template" value="table">
-		<input type="hidden" name="_captcha" value="false">
+    <section class="card rsvp-section">
+      <div class="section-title" data-i18n="rsvpTitle"></div>
+      <div class="section-subtitle" data-i18n="rsvpSubtitle"></div>
 
-		<div class="form-row">
-		  <div class="form-group">
-			<label for="guest-name" data-i18n="labelName"></label>
-			<input type="text" id="guest-name" name="Name" required />
-		  </div>
-		</div>
+      <form id="rsvp-form" class="rsvp-form" action="https://formsubmit.co/Gigijy19@gmail.com" method="POST">
+        <input type="hidden" name="_cc" value="qchen125@gmail.com">
+        <input type="hidden" name="_subject" value="Wedding RSVP">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
 
-		<div class="form-row">
-		  <div class="form-group">
-			<label data-i18n="labelAttending"></label>
-			<div class="radio-group">
-			  <label>
-				<input type="radio" name="Attending" value="Yes" required />
-				<span data-i18n="attendYes"></span>
-			  </label>
-			  <label>
-				<input type="radio" name="Attending" value="No" required />
-				<span data-i18n="attendNo"></span>
-			  </label>
-			</div>
-		  </div>
-		</div>
-
-		<div class="form-row">
-		  <div class="form-group">
-			<label for="guests" data-i18n="labelGuests"></label>
-			<select id="guests" name="Total Guests"></select>
-		  </div>
-		</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="guest-name" data-i18n="labelName"></label>
+            <input type="text" id="guest-name" name="Name" required />
+          </div>
+        </div>
 		
-		 <div class="form-row">
+		        <!-- ✅ FIX: Use names that FormSubmit reliably includes + also allow reply-to -->
+        <div class="form-row">
           <div class="form-group">
             <label for="guest-email" data-i18n="labelEmail"></label>
-            <input type="email" id="guest-email" name="Email" />
+            <input type="email" id="guest-email" name="email" autocomplete="email" />
           </div>
         </div>
 
         <div class="form-row">
           <div class="form-group">
             <label for="guest-phone" data-i18n="labelPhone"></label>
-            <input type="tel" id="guest-phone" name="Phone" />
+            <input type="tel" id="guest-phone" name="phone" autocomplete="tel" />
           </div>
         </div>
 
-		<button type="submit" class="rsvp-button" data-i18n="submitRsvp"></button>
-	  </form>
-	</section>
+        <div class="form-row">
+          <div class="form-group">
+            <label data-i18n="labelAttending"></label>
+            <div class="radio-group">
+              <label>
+                <input type="radio" name="Attending" value="Yes" required />
+                <span data-i18n="attendYes"></span>
+              </label>
+              <label>
+                <input type="radio" name="Attending" value="No" required />
+                <span data-i18n="attendNo"></span>
+              </label>
+            </div>
+          </div>
+        </div>
 
-    <footer data-i18n="footerText">
-    </footer>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="guests" data-i18n="labelGuests"></label>
+            <select id="guests" name="Total Guests"></select>
+          </div>
+        </div>
+
+
+
+        <button type="submit" class="rsvp-button" data-i18n="submitRsvp"></button>
+      </form>
+    </section>
+
+    <footer data-i18n="footerText"></footer>
   </main>
 
   <script>
@@ -680,37 +630,35 @@
      * TRANSLATIONS + LANGUAGE
      ***********************/
     let currentLang = "en";
-	
-	function updateGuestOptions() {
-	  const select = document.getElementById("guests");
-	  if (!select) return;
 
-	  // Clear existing options
-	  select.innerHTML = "";
+    function updateGuestOptions() {
+      const select = document.getElementById("guests");
+      if (!select) return;
 
-	  const options =
-		currentLang === "en"
-		  ? [
-			  { value: "1", label: "Just me" },
-			  { value: "2", label: "Me + 1" }
-			]
-		  : [
-			  { value: "1", label: "只有我" },
-			  { value: "2", label: "我 + 1" },
-			  { value: "3", label: "我 + 2" },
-			  { value: "4", label: "我 + 3" }
-			];
+      select.innerHTML = "";
 
-	  options.forEach(optData => {
-		const opt = document.createElement("option");
-		opt.value = optData.value;
-		opt.textContent = optData.label;
-		select.appendChild(opt);
-	  });
-	}
-	
-	
-	function updateContactFieldRequirements() {
+      const options =
+        currentLang === "en"
+          ? [
+              { value: "1", label: "Just me" },
+              { value: "2", label: "Me + 1" }
+            ]
+          : [
+              { value: "1", label: "只有我" },
+              { value: "2", label: "我 + 1" },
+              { value: "3", label: "我 + 2" },
+              { value: "4", label: "我 + 3" }
+            ];
+
+      options.forEach(optData => {
+        const opt = document.createElement("option");
+        opt.value = optData.value;
+        opt.textContent = optData.label;
+        select.appendChild(opt);
+      });
+    }
+
+    function updateContactFieldRequirements() {
       const emailInput = document.getElementById("guest-email");
       const phoneInput = document.getElementById("guest-phone");
       if (!emailInput || !phoneInput) return;
@@ -727,7 +675,7 @@
         phoneInput.placeholder = "可选";
       }
     }
-	
+
     const translations = {
       en: {
         title: "Wedding Invitation",
@@ -740,18 +688,18 @@
         rsvpTitle: "RSVP",
         rsvpSubtitle: "We'd love to know if you can make it",
         labelName: "Name",
+        labelEmail: "Email",
+        labelPhone: "Phone Number",
         labelAttending: "Will you be attending?",
         attendYes: "Yes, I will be there",
         attendNo: "Sorry, I can’t make it",
         labelGuests: "How many guests (including you)?",
-        optionJustMe: "Just me",
-        optionPlus1: "Me + 1",
-		optionPlus2: "Me + 2",
-		optionPlus3: "Me + 3",
         submitRsvp: "Send RSVP",
         musicPlay: "Play Music",
         musicPause: "Pause Music",
         footerText: "With love, Qi & Gigi",
+        countdownPrefix: "Countdown:",
+        weddingDayMsg: "Today is the day! 💍",
         heroInfo: `
           Qi &amp; Gigi joyfully invite you<br />
           to celebrate the beginning of their forever.<br /><br />
@@ -777,18 +725,18 @@
         rsvpTitle: "回复出席（RSVP）",
         rsvpSubtitle: "诚挚期待您的回复",
         labelName: "姓名",
+        labelEmail: "电子邮箱（可选）",
+        labelPhone: "联系电话（可选）",
         labelAttending: "是否出席？",
         attendYes: "会出席",
         attendNo: "不会出席",
         labelGuests: "出席人数（含您本人）",
-        optionJustMe: "只有我",
-        optionPlus1: "我 + 1",
-        optionPlus2: "我 + 2",
-        optionPlus3: "我 + 3",
         submitRsvp: "提交回复",
         musicPlay: "播放音乐",
         musicPause: "暂停音乐",
         footerText: "爱你的，Qi & Gigi",
+        countdownPrefix: "倒计时：",
+        weddingDayMsg: "就是今天！💍",
         heroInfo: `
           Qi 与 Gigi 诚挚邀请您<br />
           一同见证他们幸福旅程的开始。<br /><br />
@@ -811,58 +759,43 @@
       document.querySelectorAll("[data-i18n]").forEach(el => {
         const key = el.getAttribute("data-i18n");
         const text = translations[currentLang][key];
-        if (typeof text === "string") {
-          el.textContent = text;
-        }
+        if (typeof text === "string") el.textContent = text;
       });
-	  
-	document.getElementById("lang-en").classList.toggle("active", currentLang === "en");
-	document.getElementById("lang-zh").classList.toggle("active", currentLang === "zh");
 
-      // HTML fields (with <br>, <strong>, etc.)
+      // HTML fields
       document.querySelectorAll("[data-i18n-html]").forEach(el => {
         const key = el.getAttribute("data-i18n-html");
         const html = translations[currentLang][key];
-        if (typeof html === "string") {
-          el.innerHTML = html;
-        }
+        if (typeof html === "string") el.innerHTML = html;
       });
 
-      // Update slideshow caption language
-      updateCaption();
+      // language button state
+      document.getElementById("lang-en").classList.toggle("active", currentLang === "en");
+      document.getElementById("lang-zh").classList.toggle("active", currentLang === "zh");
 
       // Update music label based on current state
-      const musicLabel = document.querySelector(".music-label");
+      const musicLabelEl = document.querySelector(".music-label");
       if (bgMusic.paused) {
-        musicLabel.textContent = translations[currentLang].musicPlay;
+        musicLabelEl.textContent = translations[currentLang].musicPlay;
       } else {
-        musicLabel.textContent = translations[currentLang].musicPause;
+        musicLabelEl.textContent = translations[currentLang].musicPause;
       }
 
-      // Rebuild calendar headings (Sun/Mon vs 日/一 etc.)
+      // Rebuild dynamic parts
       buildCalendar();
-	  updateGuestOptions();
+      updateGuestOptions();
+      updateContactFieldRequirements();
+      updateCaption();
+      updateCountdown();
     }
 
     /***********************
      * PHOTO SLIDESHOW
      ***********************/
     const slidesData = [
-      {
-        url: "https://i.imgur.com/GFY1oGg.jpeg",
-        captionEn: "From the moment we said hello.",
-        captionZh: "从我们说出第一声“你好”的那一刻开始。"
-      },
-      {
-        url: "https://i.imgur.com/r7ST0ct.jpeg",
-        captionEn: "A lifetime of adventures awaits.",
-        captionZh: "余生的每一次冒险，都想和你一起。"
-      },
-      {
-        url: "https://i.imgur.com/ePZPshU.jpeg",
-        captionEn: "Surrounded by friends, family, and love.",
-        captionZh: "被家人和朋友环绕的每一刻，都是幸福。"
-      }
+      { url: "https://i.imgur.com/GFY1oGg.jpeg", captionEn: "From the moment we said hello.", captionZh: "从我们说出第一声“你好”的那一刻开始。" },
+      { url: "https://i.imgur.com/r7ST0ct.jpeg", captionEn: "A lifetime of adventures awaits.", captionZh: "余生的每一次冒险，都想和你一起。" },
+      { url: "https://i.imgur.com/ePZPshU.jpeg", captionEn: "Surrounded by friends, family, and love.", captionZh: "被家人和朋友环绕的每一刻，都是幸福。" }
     ];
 
     const slideshowContainer = document.querySelector(".slideshow-container");
@@ -885,7 +818,6 @@
         slideshowContainer.appendChild(slideEl);
       });
 
-      // Dots
       slidesData.forEach((_, index) => {
         const dot = document.createElement("div");
         dot.className = "slide-dot" + (index === 0 ? " active" : "");
@@ -901,9 +833,7 @@
       const langKey = currentLang === "zh" ? "captionZh" : "captionEn";
       captionTextEl.textContent = slidesData[currentSlideIndex][langKey];
       const dots = dotsContainer.querySelectorAll(".slide-dot");
-      dots.forEach((dot, i) => {
-        dot.classList.toggle("active", i === currentSlideIndex);
-      });
+      dots.forEach((dot, i) => dot.classList.toggle("active", i === currentSlideIndex));
     }
 
     function goToSlide(index) {
@@ -916,13 +846,8 @@
       updateCaption();
     }
 
-    function nextSlide() {
-      goToSlide(currentSlideIndex + 1);
-    }
-
-    function prevSlide() {
-      goToSlide(currentSlideIndex - 1);
-    }
+    function nextSlide() { goToSlide(currentSlideIndex + 1); }
+    function prevSlide() { goToSlide(currentSlideIndex - 1); }
 
     function startAutoSlide() {
       stopAutoSlide();
@@ -936,36 +861,28 @@
       }
     }
 
-    document.getElementById("next-slide").addEventListener("click", () => {
-      nextSlide();
-      startAutoSlide();
-    });
+    document.getElementById("next-slide").addEventListener("click", () => { nextSlide(); startAutoSlide(); });
+    document.getElementById("prev-slide").addEventListener("click", () => { prevSlide(); startAutoSlide(); });
 
-    document.getElementById("prev-slide").addEventListener("click", () => {
-      prevSlide();
-      startAutoSlide();
-    });
-	
-	/***********************
-	 * SNOWFALL ANIMATION
-	 ***********************/
-	function createSnowflake() {
-	  const snowflake = document.createElement("div");
-	  snowflake.classList.add("snowflake");
-	  snowflake.textContent = "✧˖°.";
+    /***********************
+     * SNOWFALL ANIMATION
+     ***********************/
+    function createSnowflake() {
+      const snowflake = document.createElement("div");
+      snowflake.classList.add("snowflake");
+      snowflake.textContent = "✧˖°.";
 
-	  snowflake.style.left = Math.random() * window.innerWidth + "px";
-	  const size = Math.random() * 15 + 10;
-	  snowflake.style.fontSize = size + "px";
-	  const duration = Math.random() * 10 + 12;
-	  snowflake.style.animationDuration = duration + "s";
-	  snowflake.style.opacity = Math.random() * 0.7 + 0.3;
+      snowflake.style.left = Math.random() * window.innerWidth + "px";
+      const size = Math.random() * 15 + 10;
+      snowflake.style.fontSize = size + "px";
+      const duration = Math.random() * 10 + 12;
+      snowflake.style.animationDuration = duration + "s";
+      snowflake.style.opacity = Math.random() * 0.7 + 0.3;
 
-	  document.body.appendChild(snowflake);
-	  setTimeout(() => snowflake.remove(), duration * 1000);
-	}
-
-	setInterval(createSnowflake, 300);
+      document.body.appendChild(snowflake);
+      setTimeout(() => snowflake.remove(), duration * 1000);
+    }
+    setInterval(createSnowflake, 300);
 
     /***********************
      * CALENDAR (January 2026)
@@ -1003,9 +920,7 @@
         const dayEl = document.createElement("div");
         dayEl.className = "calendar-day";
         dayEl.textContent = day;
-        if (day === highlightDay) {
-          dayEl.classList.add("highlight");
-        }
+        if (day === highlightDay) dayEl.classList.add("highlight");
         calendarGrid.appendChild(dayEl);
       }
     }
@@ -1013,7 +928,6 @@
     /***********************
      * Date Countdown
      ***********************/
-	
     function updateCountdown() {
       const el = document.getElementById("countdown");
       if (!el) return;
@@ -1038,7 +952,6 @@
       el.textContent = currentLang === "zh" ? textZh : textEn;
     }
 
-
     /***********************
      * MUSIC AUTOPLAY + TOGGLE
      ***********************/
@@ -1046,24 +959,23 @@
     const musicToggle = document.getElementById("music-toggle");
     const musicLabel = musicToggle.querySelector(".music-label");
 
-	async function tryAutoplay() {
-	  try {
-		await bgMusic.play();
-		musicToggle.classList.remove("paused");
-		musicLabel.textContent = translations[currentLang].musicPause;
-	  } catch (err) {
-		const unlock = () => {
-		  bgMusic.play();
-		  musicToggle.classList.remove("paused");
-		  musicLabel.textContent = translations[currentLang].musicPause;
-		  document.removeEventListener("click", unlock);
-		  document.removeEventListener("touchstart", unlock);
-		};
-
-		document.addEventListener("click", unlock, { once: true });
-		document.addEventListener("touchstart", unlock, { once: true });
-	  }
-	}
+    async function tryAutoplay() {
+      try {
+        await bgMusic.play();
+        musicToggle.classList.remove("paused");
+        musicLabel.textContent = translations[currentLang].musicPause;
+      } catch (err) {
+        const unlock = () => {
+          bgMusic.play();
+          musicToggle.classList.remove("paused");
+          musicLabel.textContent = translations[currentLang].musicPause;
+          document.removeEventListener("click", unlock);
+          document.removeEventListener("touchstart", unlock);
+        };
+        document.addEventListener("click", unlock, { once: true });
+        document.addEventListener("touchstart", unlock, { once: true });
+      }
+    }
 
     musicToggle.addEventListener("click", () => {
       if (bgMusic.paused) {
@@ -1078,17 +990,35 @@
     });
 
     /***********************
+     * ✅ FIX: Ensure email/phone ALWAYS show up in the email
+     * (FormSubmit table template can omit empty fields.)
+     ***********************/
+    document.getElementById("rsvp-form").addEventListener("submit", (e) => {
+      const emailInput = document.getElementById("guest-email");
+      const phoneInput = document.getElementById("guest-phone");
+
+      // If left blank, send "N/A" so it appears in the email table.
+      if (emailInput && !emailInput.value.trim()) emailInput.value = "N/A";
+      if (phoneInput && !phoneInput.value.trim()) phoneInput.value = "N/A";
+    });
+
+    /***********************
      * INIT
      ***********************/
     document.addEventListener("DOMContentLoaded", () => {
       buildSlides();
-      buildCalendar();
       startAutoSlide();
       tryAutoplay();
-      applyTranslations(); // default EN
-	  // 🔥 start countdown
-	  updateCountdown();
-	  setInterval(updateCountdown, 1000);
+
+      // First render
+      updateGuestOptions();
+      updateContactFieldRequirements();
+      buildCalendar();
+      applyTranslations();
+
+      // countdown tick
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
 
       document.getElementById("lang-en").addEventListener("click", () => {
         currentLang = "en";
