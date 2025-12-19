@@ -19,7 +19,9 @@
       --text-main: #3a2b2b;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
@@ -31,6 +33,10 @@
       flex-direction: column;
       align-items: center;
     }
+	
+	.hero-badge span {
+	  color: black !important;
+	}
 
     main {
       width: 100%;
@@ -49,25 +55,101 @@
     }
 
     @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(12px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
+	
+	.rsvp-section {
+	  text-align: center;
+	}
+
+	.rsvp-form {
+	  max-width: 480px;
+	  margin: 0 auto;
+	  text-align: left;
+	}
+
+	.rsvp-form .form-row {
+	  margin-bottom: 12px;
+	}
+
+	.rsvp-form .form-group label {
+	  display: block;
+	  font-size: 0.85rem;
+	  margin-bottom: 4px;
+	  letter-spacing: 0.08em;
+	  text-transform: uppercase;
+	  color: #7f6e6e;
+	}
+
+	.rsvp-form input[type="text"],
+	.rsvp-form select,
+	.rsvp-form textarea {
+	  width: 100%;
+	  padding: 8px 10px;
+	  border-radius: 10px;
+	  border: 1px solid #e0c9c9;
+	  font-family: inherit;
+	  font-size: 0.95rem;
+	  box-sizing: border-box;
+	}
+
+	.rsvp-form textarea {
+	  resize: vertical;
+	}
+
+	.radio-group {
+	  display: flex;
+	  flex-direction: column;
+	  gap: 4px;
+	  font-size: 0.9rem;
+	}
+
+	.radio-group input[type="radio"] {
+	  margin-right: 6px;
+	}
+
+	.rsvp-button {
+	  margin-top: 10px;
+	  padding: 10px 22px;
+	  border-radius: 999px;
+	  border: none;
+	  background: #c49c9c;
+	  color: #fff;
+	  font-size: 0.95rem;
+	  cursor: pointer;
+	  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15);
+	  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+	}
+
+	.rsvp-button:hover {
+	  background: #a57b7b;
+	  transform: translateY(-1px);
+	  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.18);
+	}
 
     header {
       text-align: center;
       padding: 16px 0 8px;
       animation: fadeIn 1.2s ease-out forwards;
     }
-
-    body, main, .card, header, section, .hero-text, .calendar-section {
-      text-align: center !important;
-    }
-
+	
+	body, main, .card, header, section, .hero-text, .calendar-section {
+	  text-align: center !important;
+	}
+	
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
 
+	
     .title {
       font-family: "Playfair Display", serif;
       font-weight: 700;
@@ -84,39 +166,6 @@
       color: #7b5c5c;
     }
 
-    .countdown {
-      margin-top: 8px;
-      font-size: 1rem;
-      font-weight: 600;
-      color: #3a2b2b;
-      letter-spacing: 0.05em;
-    }
-
-    /* Language toggle buttons */
-    .lang-toggle button {
-      font-size: 0.85rem;
-      padding: 6px 14px;
-      min-width: 90px;
-      border: 1px solid #c49c9c;
-      background: white;
-      color: #3a2b2b;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
-      margin: 0 6px;
-    }
-
-    .lang-toggle button:hover {
-      background: #c49c9c;
-      color: white;
-      transform: translateY(-1px);
-    }
-
-    .lang-toggle button.active {
-      background: #c49c9c;
-      color: white;
-    }
-
     .hero-section {
       display: grid;
       grid-template-columns: 1.3fr 1fr;
@@ -125,10 +174,14 @@
     }
 
     @media (max-width: 768px) {
-      .hero-section { grid-template-columns: 1fr; }
+      .hero-section {
+        grid-template-columns: 1fr;
+      }
     }
 
-    .hero-text { padding: 16px; }
+    .hero-text {
+      padding: 16px;
+    }
 
     .hero-names {
       font-family: "Playfair Display", serif;
@@ -136,12 +189,29 @@
       margin-bottom: 12px;
     }
 
+    .hero-divider {
+      width: 60px;
+      height: 2px;
+      background: var(--primary);
+      margin: 10px 0 16px;
+    }
+
     .hero-info {
       font-size: 0.98rem;
       line-height: 1.6;
     }
 
-    .hero-info strong { font-weight: 600; }
+    .hero-info strong {
+      font-weight: 600;
+    }
+
+    .hero-highlight {
+      margin-top: 16px;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--primary-dark);
+    }
 
     .hero-badge {
       display: inline-flex;
@@ -154,7 +224,12 @@
       margin-top: 8px;
     }
 
-    .hero-badge span { color: black !important; }
+    .hero-badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: black !important;
+    }
 
     /* Slideshow */
     .slideshow-container {
@@ -173,7 +248,9 @@
       background-size: cover;
     }
 
-    .slide.active { opacity: 1; }
+    .slide.active {
+      opacity: 1;
+    }
 
     .slide-overlay {
       position: absolute;
@@ -195,7 +272,10 @@
       gap: 8px;
     }
 
-    .slide-dot-container { display: flex; gap: 6px; }
+    .slide-dot-container {
+      display: flex;
+      gap: 6px;
+    }
 
     .slide-dot {
       width: 8px;
@@ -205,7 +285,9 @@
       background: transparent;
     }
 
-    .slide-dot.active { background: #fff; }
+    .slide-dot.active {
+      background: #fff;
+    }
 
     .slide-controls {
       position: absolute;
@@ -246,7 +328,9 @@
     }
 
     @media (max-width: 768px) {
-      .calendar-section { grid-template-columns: 1fr; }
+      .calendar-section {
+        grid-template-columns: 1fr;
+      }
     }
 
     .calendar-grid {
@@ -288,26 +372,32 @@
       border-radius: 999px;
     }
 
-    .calendar-day.empty { opacity: 0.5; }
-
-    .calendar-day.highlight {
-      position: relative;
-      font-weight: 700;
-      color: #3a2b2b;
+    .calendar-day.empty {
+      opacity: 0.5;
     }
 
-    .calendar-day.highlight::before {
-      content: "❤";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 1.8rem;
-      color: rgba(230, 57, 70, 0.28);
-      pointer-events: none;
-    }
+	.calendar-day.highlight {
+	  position: relative;
+	  font-weight: 700;
+	  color: #3a2b2b;
+	}
 
-    .date-input-box { margin-top: 14px; font-size: 0.85rem; }
+	/* Transparent heart behind the number */
+	.calendar-day.highlight::before {
+	  content: "❤";
+	  position: absolute;
+	  top: 50%;
+	  left: 50%;
+	  transform: translate(-50%, -50%);
+	  font-size: 1.8rem;
+	  color: rgba(230, 57, 70, 0.28);
+	  pointer-events: none;
+	}
+
+    .date-input-box {
+      margin-top: 14px;
+      font-size: 0.85rem;
+    }
 
     .date-input-box input[type="date"] {
       margin-top: 6px;
@@ -329,68 +419,6 @@
       letter-spacing: 0.16em;
       color: #7f6e6e;
       margin-bottom: 12px;
-    }
-
-    /* RSVP form */
-    .rsvp-section { text-align: center; }
-
-    .rsvp-form {
-      max-width: 480px;
-      margin: 0 auto;
-      text-align: left;
-    }
-
-    .rsvp-form .form-row { margin-bottom: 12px; }
-
-    .rsvp-form .form-group label {
-      display: block;
-      font-size: 0.85rem;
-      margin-bottom: 4px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #7f6e6e;
-    }
-
-    .rsvp-form input[type="text"],
-    .rsvp-form input[type="email"],
-    .rsvp-form input[type="tel"],
-    .rsvp-form select,
-    .rsvp-form textarea {
-      width: 100%;
-      padding: 8px 10px;
-      border-radius: 10px;
-      border: 1px solid #e0c9c9;
-      font-family: inherit;
-      font-size: 0.95rem;
-      box-sizing: border-box;
-    }
-
-    .radio-group {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      font-size: 0.9rem;
-    }
-
-    .radio-group input[type="radio"] { margin-right: 6px; }
-
-    .rsvp-button {
-      margin-top: 10px;
-      padding: 10px 22px;
-      border-radius: 999px;
-      border: none;
-      background: #c49c9c;
-      color: #fff;
-      font-size: 0.95rem;
-      cursor: pointer;
-      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15);
-      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
-    }
-
-    .rsvp-button:hover {
-      background: #a57b7b;
-      transform: translateY(-1px);
-      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.18);
     }
 
     /* Music toggle */
@@ -426,9 +454,13 @@
       background: #56ef7f;
     }
 
-    .music-toggle.paused .music-indicator { background: #f98c8c; }
+    .music-toggle.paused .music-indicator {
+      background: #f98c8c;
+    }
 
-    .music-note { font-size: 1.1rem; }
+    .music-note {
+      font-size: 1.1rem;
+    }
 
     footer {
       font-size: 0.75rem;
@@ -437,27 +469,69 @@
       opacity: 0.8;
     }
 
-    /* Snowfall animation (kept as-is; swap emoji if you want hearts/bubbles) */
-    .snowflake {
-      position: fixed;
-      top: -10px;
-      left: 0;
-      pointer-events: none;
-      color: #cbe6f7;
-      font-size: 1em;
-      opacity: 0.8;
-      z-index: 9999;
-      animation: fall linear infinite;
-    }
+	/* Snowfall animation */
+	.snowflake {
+	  position: fixed;
+	  top: -10px;
+	  left: 0;
+	  pointer-events: none;
+	  color:#FFFFFF;
+	  /*color: #b3e5fc;
+	  color:#ff80b3;
+	  color: #cbe6f7;*/
+	  font-size: 1em;
+	  opacity: 0.8;
+	  z-index: 9999;
+	  animation: fall linear infinite;
+	}
 
-    @keyframes fall {
-      0% { transform: translateY(-10vh); }
-      100% { transform: translateY(110vh); }
-    }
+	@keyframes fall {
+	  0% {
+		transform: translateY(-10vh);
+	  }
+	  100% {
+		transform: translateY(110vh);
+	  }
+	}
+	
+	/* Language toggle buttons */
+	.lang-toggle button {
+	  font-size: 0.85rem;
+	  padding: 6px 14px;        /* consistent button padding */
+	  min-width: 90px;          /* ensures both buttons are same width */
+	  border: 1px solid #c49c9c;
+	  background: white;
+	  color: #3a2b2b;
+	  border-radius: 8px;
+	  cursor: pointer;
+	  transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+	}
+	
+	.countdown {
+	  margin-top: 8px;
+	  font-size: 1rem;
+	  font-weight: 600;
+	  color: #3a2b2b;
+	  letter-spacing: 0.05em;
+	}
+
+	/* Hover effect */
+	.lang-toggle button:hover {
+	  background: #c49c9c;
+	  color: white;
+	  transform: translateY(-1px);
+	}
+
+	/* Optional: Highlight active language */
+	.lang-toggle button.active {
+	  background: #c49c9c;
+	  color: white;
+	}
+
   </style>
 </head>
-
 <body>
+  <!-- Background music -->
   <audio id="bg-music" src="https://github.com/gigiqiinvitation/gigiqiinvitation.github.io/raw/refs/heads/main/Kina%20Grannis%20-%20Can't%20Help%20Falling%20In%20Love%20(Lyrics).mp3" loop></audio>
 
   <button id="music-toggle" class="music-toggle" type="button">
@@ -470,7 +544,7 @@
     <header>
       <div class="title" data-i18n="title"></div>
       <div class="subtitle" data-i18n="subtitle"></div>
-      <div id="countdown" class="countdown"></div>
+	  <div id="countdown" class="countdown"></div>
 
       <div class="lang-toggle" style="margin-top:10px;">
         <button id="lang-en" type="button">English</button>
@@ -478,23 +552,32 @@
       </div>
     </header>
 
+    <!-- Hero / main invite section -->
     <section class="card hero-section">
-      <div class="hero-text">
-        <div class="hero-names">Qi &amp; Gigi</div>
+       <div class="hero-text">
+		<div class="hero-names">Qi &amp; Gigi</div>
 
-        <img src="https://i.imgur.com/Rlb2wON.gif" alt="Wedding GIF2"
-             style="display:block; margin:0 auto 40px auto; height:4em;" />
+		<img 
+			src="https://i.imgur.com/Rlb2wON.gif" 
+			alt="Wedding GIF2"
+			style="display:block; margin:0 auto 40px auto; height:4em;"
+		/>
+		
+		<div class="hero-info" data-i18n-html="heroInfo"></div>
 
-        <div class="hero-info" data-i18n-html="heroInfo"></div>
+		<!-- extra GIF stays same in both languages -->
+		<img 
+			src="https://i.imgur.com/ulKjjQW.gif" 
+			alt="Wedding GIF"
+			style="display:block; margin:0 auto 40px auto; height:4em;"
+		/>
 
-        <img src="https://i.imgur.com/ulKjjQW.gif" alt="Wedding GIF"
-             style="display:block; margin:0 auto 40px auto; height:4em;" />
+		<div class="hero-badge">
+		  <span data-i18n="saveDate"></span>
+		</div>
+	  </div>
 
-        <div class="hero-badge">
-          <span data-i18n="saveDate"></span>
-        </div>
-      </div>
-
+      <!-- Slideshow -->
       <div class="slideshow-container">
         <div class="slide-controls">
           <button type="button" class="slide-button" id="prev-slide" aria-label="Previous photo">‹</button>
@@ -507,6 +590,7 @@
       </div>
     </section>
 
+    <!-- Calendar section -->
     <section class="card calendar-section">
       <div>
         <div class="section-title" data-i18n="calendarTitle"></div>
@@ -523,28 +607,53 @@
           <div class="calendar-month" data-i18n="calendarMonth"></div>
           <div class="calendar-year">2026</div>
         </div>
-        <div class="calendar-grid" id="calendar-grid"></div>
+        <div class="calendar-grid" id="calendar-grid">
+          <!-- Calendar filled by JS -->
+        </div>
       </div>
     </section>
+	
+	<section class="card rsvp-section">
+	  <div class="section-title" data-i18n="rsvpTitle"></div>
+	  <div class="section-subtitle" data-i18n="rsvpSubtitle"></div>
 
-    <section class="card rsvp-section">
-      <div class="section-title" data-i18n="rsvpTitle"></div>
-      <div class="section-subtitle" data-i18n="rsvpSubtitle"></div>
+	  <form class="rsvp-form" action="https://formsubmit.co/Gigijy19@gmail.com" method="POST">
+		<input type="hidden" name="_cc" value="qchen125@gmail.com">
+		<input type="hidden" name="_subject" value="Wedding RSVP">
+		<input type="hidden" name="_template" value="table">
+		<input type="hidden" name="_captcha" value="false">
 
-      <form class="rsvp-form" action="https://formsubmit.co/Gigijy19@gmail.com" method="POST">
-        <input type="hidden" name="_cc" value="qchen125@gmail.com">
-        <input type="hidden" name="_subject" value="Wedding RSVP">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="false">
+		<div class="form-row">
+		  <div class="form-group">
+			<label for="guest-name" data-i18n="labelName"></label>
+			<input type="text" id="guest-name" name="Name" required />
+		  </div>
+		</div>
 
-        <div class="form-row">
-          <div class="form-group">
-            <label for="guest-name" data-i18n="labelName"></label>
-            <input type="text" id="guest-name" name="Name" required />
-          </div>
-        </div>
+		<div class="form-row">
+		  <div class="form-group">
+			<label data-i18n="labelAttending"></label>
+			<div class="radio-group">
+			  <label>
+				<input type="radio" name="Attending" value="Yes" required />
+				<span data-i18n="attendYes"></span>
+			  </label>
+			  <label>
+				<input type="radio" name="Attending" value="No" required />
+				<span data-i18n="attendNo"></span>
+			  </label>
+			</div>
+		  </div>
+		</div>
 
-        <div class="form-row">
+		<div class="form-row">
+		  <div class="form-group">
+			<label for="guests" data-i18n="labelGuests"></label>
+			<select id="guests" name="Total Guests"></select>
+		  </div>
+		</div>
+		
+		 <div class="form-row">
           <div class="form-group">
             <label for="guest-email" data-i18n="labelEmail"></label>
             <input type="email" id="guest-email" name="Email" />
@@ -558,185 +667,50 @@
           </div>
         </div>
 
-        <div class="form-row">
-          <div class="form-group">
-            <label data-i18n="labelAttending"></label>
-            <div class="radio-group">
-              <label>
-                <input type="radio" name="Attending" value="Yes" required />
-                <span data-i18n="attendYes"></span>
-              </label>
-              <label>
-                <input type="radio" name="Attending" value="No" required />
-                <span data-i18n="attendNo"></span>
-              </label>
-            </div>
-          </div>
-        </div>
+		<button type="submit" class="rsvp-button" data-i18n="submitRsvp"></button>
+	  </form>
+	</section>
 
-        <div class="form-row">
-          <div class="form-group">
-            <label for="guests" data-i18n="labelGuests"></label>
-            <select id="guests" name="Total Guests"></select>
-          </div>
-        </div>
-
-        <button type="submit" class="rsvp-button" data-i18n="submitRsvp"></button>
-      </form>
-    </section>
-
-    <footer data-i18n="footerText"></footer>
+    <footer data-i18n="footerText">
+    </footer>
   </main>
 
   <script>
     /***********************
-     * LANGUAGE + TRANSLATIONS
+     * TRANSLATIONS + LANGUAGE
      ***********************/
     let currentLang = "en";
+	
+	function updateGuestOptions() {
+	  const select = document.getElementById("guests");
+	  if (!select) return;
 
-    const translations = {
-      en: {
-        title: "Wedding Invitation",
-        subtitle: "We are getting married",
-        saveDate: "Save the Date • 01 · 23 · 2026",
-        calendarTitle: "Mark Your Calendar",
-        calendarSubtitle: "Friday, January 23, 2026",
-        calendarMonth: "January",
-        weddingDateLabel: "Wedding Date",
-        rsvpTitle: "RSVP",
-        rsvpSubtitle: "We'd love to know if you can make it",
-        labelName: "Name",
-        labelEmail: "Email Address",
-        labelPhone: "Phone Number (optional)",
-        labelAttending: "Will you be attending?",
-        attendYes: "Yes, I will be there",
-        attendNo: "Sorry, I can’t make it",
-        labelGuests: "How many guests (including you)?",
-        submitRsvp: "Send RSVP",
-        musicPlay: "Play Music",
-        musicPause: "Pause Music",
-        countdownPrefix: "Countdown:",
-        heroInfo: `
-          With hearts full of love,<br />
-          Qi &amp; Gigi joyfully invite you<br />
-          to celebrate the beginning of their forever.<br /><br />
-          Please join us as we exchange vows<br />
-          and celebrate with our family and friends.<br /><br />
-          <strong>Date:</strong><br />
-          Friday, January 23, 2026<br /><br />
-          <strong>Time:</strong><br />
-          6:00 PM<br /><br />
-          <strong>Location:</strong><br />
-          Grand Royal Palace<br />
-          5716 7th Ave, Brooklyn, NY 11220<br />
-        `,
-        footerText: "With love, Qi & Gigi",
-        weddingDayMsg: "Today is our wedding day!"
-      },
-      zh: {
-        title: "婚礼邀请函",
-        subtitle: "新郎见证人：陈再敏&陈美兰 ， 新娘见证人：游龙飞&刘美云",
-        saveDate: "请预留日期 • 01 · 23 · 2026",
-        calendarTitle: "在日历上标记这一天",
-        calendarSubtitle: "2026年1月23日 · 星期五",
-        calendarMonth: "一月",
-        weddingDateLabel: "结婚日期",
-        rsvpTitle: "回复出席（RSVP）",
-        rsvpSubtitle: "诚挚期待您的回复",
-        labelName: "姓名",
-        labelEmail: "电子邮箱（可选）",
-        labelPhone: "联系电话（可选）",
-        labelAttending: "是否出席？",
-        attendYes: "会出席",
-        attendNo: "不克出席",
-        labelGuests: "出席人数（含您本人）",
-        submitRsvp: "提交回复",
-        musicPlay: "播放音乐",
-        musicPause: "暂停音乐",
-        countdownPrefix: "倒计时：",
-        heroInfo: `
-          满怀爱意，<br />
-          Qi 与 Gigi 诚挚邀请您<br />
-          一同见证他们幸福旅程的开始。<br /><br />
-          诚邀您与我们一同交换誓言，<br />
-          与家人和朋友共享这份喜悦。<br /><br />
-          <strong>日期：</strong><br />
-          2026年1月23日（星期五）<br /><br />
-          <strong>时间：</strong><br />
-          晚上 6:00<br /><br />
-          <strong>地点：</strong><br />
-          皇冠大酒楼<br />
-          Grand Royal Palace<br />
-          5716 7th Ave, Brooklyn, NY 11220<br />
-        `,
-        footerText: "爱你的，Qi & Gigi",
-        weddingDayMsg: "今天就是我们的婚礼！"
-      }
-    };
+	  // Clear existing options
+	  select.innerHTML = "";
 
-    /***********************
-     * COUNTDOWN
-     ***********************/
-    function updateCountdown() {
-      const el = document.getElementById("countdown");
-      if (!el) return;
+	  const options =
+		currentLang === "en"
+		  ? [
+			  { value: "1", label: "Just me" },
+			  { value: "2", label: "Me + 1" }
+			]
+		  : [
+			  { value: "1", label: "只有我" },
+			  { value: "2", label: "我 + 1" },
+			  { value: "3", label: "我 + 2" },
+			  { value: "4", label: "我 + 3" }
+			];
 
-      const targetDate = new Date("2026-01-23T16:00:00");
-      const now = new Date();
-      const diff = targetDate - now;
-
-      if (diff <= 0) {
-        el.textContent = translations[currentLang].weddingDayMsg;
-        return;
-      }
-
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const mins = Math.floor((diff / (1000 * 60)) % 60);
-      const secs = Math.floor((diff / 1000) % 60);
-
-      const textEn = `${translations.en.countdownPrefix} ${days} Days ${hours} Hours ${mins} Minutes ${secs} Seconds`;
-      const textZh = `${translations.zh.countdownPrefix} ${days}天 ${hours}小时 ${mins}分钟 ${secs}秒`;
-
-      el.textContent = currentLang === "zh" ? textZh : textEn;
-    }
-
-    /***********************
-     * RSVP Guest Options (EN: up to +1, ZH: up to +3)
-     ***********************/
-    function updateGuestOptions() {
-      const select = document.getElementById("guests");
-      if (!select) return;
-
-      select.innerHTML = "";
-
-      const options =
-        currentLang === "en"
-          ? [
-              { value: "1", label: "Just me" },
-              { value: "2", label: "Me + 1" }
-            ]
-          : [
-              { value: "1", label: "只有我" },
-              { value: "2", label: "我 + 1" },
-              { value: "3", label: "我 + 2" },
-              { value: "4", label: "我 + 3" }
-            ];
-
-      options.forEach(optData => {
-        const opt = document.createElement("option");
-        opt.value = optData.value;
-        opt.textContent = optData.label;
-        select.appendChild(opt);
-      });
-    }
-
-    /***********************
-     * Email/Phone required logic:
-     * EN: email required, phone optional
-     * ZH: email optional, phone optional
-     ***********************/
-    function updateContactFieldRequirements() {
+	  options.forEach(optData => {
+		const opt = document.createElement("option");
+		opt.value = optData.value;
+		opt.textContent = optData.label;
+		select.appendChild(opt);
+	  });
+	}
+	
+	
+	function updateContactFieldRequirements() {
       const emailInput = document.getElementById("guest-email");
       const phoneInput = document.getElementById("guest-phone");
       if (!emailInput || !phoneInput) return;
@@ -753,45 +727,125 @@
         phoneInput.placeholder = "可选";
       }
     }
+	
+    const translations = {
+      en: {
+        title: "Wedding Invitation",
+        subtitle: "We are getting married",
+        saveDate: "Save the Date • 01 · 23 · 2026",
+        calendarTitle: "Mark Your Calendar",
+        calendarSubtitle: "Friday, January 23, 2026",
+        calendarMonth: "January",
+        weddingDateLabel: "Wedding Date",
+        rsvpTitle: "RSVP",
+        rsvpSubtitle: "We'd love to know if you can make it",
+        labelName: "Name",
+        labelAttending: "Will you be attending?",
+        attendYes: "Yes, I will be there",
+        attendNo: "Sorry, I can’t make it",
+        labelGuests: "How many guests (including you)?",
+        optionJustMe: "Just me",
+        optionPlus1: "Me + 1",
+		optionPlus2: "Me + 2",
+		optionPlus3: "Me + 3",
+        submitRsvp: "Send RSVP",
+        musicPlay: "Play Music",
+        musicPause: "Pause Music",
+        footerText: "With love, Qi & Gigi",
+        heroInfo: `
+          Qi &amp; Gigi joyfully invite you<br />
+          to celebrate the beginning of their forever.<br /><br />
+          Please join us as we exchange vows<br />
+          and celebrate with our family and friends.<br /><br />
+          <strong>Date:</strong><br />
+          Friday, January 23, 2026<br /><br />
+          <strong>Time:</strong><br />
+          6:00 PM<br /><br />
+          <strong>Location:</strong><br />
+          Grand Royal Palace<br />
+          5716 7th Ave, Brooklyn, NY 11220<br /><br /><br />
+        `
+      },
+      zh: {
+        title: "婚礼邀请函",
+        subtitle: "我们要结婚啦",
+        saveDate: "请预留日期 • 01 · 23 · 2026",
+        calendarTitle: "在日历上标记这一天",
+        calendarSubtitle: "2026年1月23日 · 星期五",
+        calendarMonth: "一月",
+        weddingDateLabel: "结婚日期",
+        rsvpTitle: "回复出席（RSVP）",
+        rsvpSubtitle: "诚挚期待您的回复",
+        labelName: "姓名",
+        labelAttending: "是否出席？",
+        attendYes: "会出席",
+        attendNo: "不会出席",
+        labelGuests: "出席人数（含您本人）",
+        optionJustMe: "只有我",
+        optionPlus1: "我 + 1",
+        optionPlus2: "我 + 2",
+        optionPlus3: "我 + 3",
+        submitRsvp: "提交回复",
+        musicPlay: "播放音乐",
+        musicPause: "暂停音乐",
+        footerText: "爱你的，Qi & Gigi",
+        heroInfo: `
+          Qi 与 Gigi 诚挚邀请您<br />
+          一同见证他们幸福旅程的开始。<br /><br />
+          诚邀您与我们一同交换誓言，<br />
+          与家人和朋友共享这份喜悦。<br /><br />
+          <strong>日期：</strong><br />
+          2026年1月23日（星期五）<br /><br />
+          <strong>时间：</strong><br />
+          晚上 6:00<br /><br />
+          <strong>地点：</strong><br />
+          皇冠大酒楼<br />
+          Grand Royal Palace<br />
+          5716 7th Ave, Brooklyn, NY 11220<br /><br /><br />
+        `
+      }
+    };
 
-    /***********************
-     * APPLY TRANSLATIONS
-     ***********************/
     function applyTranslations() {
       // textContent fields
       document.querySelectorAll("[data-i18n]").forEach(el => {
         const key = el.getAttribute("data-i18n");
         const text = translations[currentLang][key];
-        if (typeof text === "string") el.textContent = text;
+        if (typeof text === "string") {
+          el.textContent = text;
+        }
       });
+	  
+	document.getElementById("lang-en").classList.toggle("active", currentLang === "en");
+	document.getElementById("lang-zh").classList.toggle("active", currentLang === "zh");
 
-      // active language button styling
-      document.getElementById("lang-en").classList.toggle("active", currentLang === "en");
-      document.getElementById("lang-zh").classList.toggle("active", currentLang === "zh");
-
-      // HTML fields
+      // HTML fields (with <br>, <strong>, etc.)
       document.querySelectorAll("[data-i18n-html]").forEach(el => {
         const key = el.getAttribute("data-i18n-html");
         const html = translations[currentLang][key];
-        if (typeof html === "string") el.innerHTML = html;
+        if (typeof html === "string") {
+          el.innerHTML = html;
+        }
       });
 
+      // Update slideshow caption language
       updateCaption();
-      buildCalendar();
-      updateGuestOptions();
-      updateContactFieldRequirements();
-      updateCountdown();
 
-      // update music label based on playing state
+      // Update music label based on current state
+      const musicLabel = document.querySelector(".music-label");
       if (bgMusic.paused) {
         musicLabel.textContent = translations[currentLang].musicPlay;
       } else {
         musicLabel.textContent = translations[currentLang].musicPause;
       }
+
+      // Rebuild calendar headings (Sun/Mon vs 日/一 etc.)
+      buildCalendar();
+	  updateGuestOptions();
     }
 
     /***********************
-     * SLIDESHOW (bilingual captions)
+     * PHOTO SLIDESHOW
      ***********************/
     const slidesData = [
       {
@@ -831,6 +885,7 @@
         slideshowContainer.appendChild(slideEl);
       });
 
+      // Dots
       slidesData.forEach((_, index) => {
         const dot = document.createElement("div");
         dot.className = "slide-dot" + (index === 0 ? " active" : "");
@@ -846,20 +901,28 @@
       const langKey = currentLang === "zh" ? "captionZh" : "captionEn";
       captionTextEl.textContent = slidesData[currentSlideIndex][langKey];
       const dots = dotsContainer.querySelectorAll(".slide-dot");
-      dots.forEach((dot, i) => dot.classList.toggle("active", i === currentSlideIndex));
+      dots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === currentSlideIndex);
+      });
     }
 
     function goToSlide(index) {
       const slides = slideshowContainer.querySelectorAll(".slide");
       if (!slides.length) return;
+
       slides[currentSlideIndex].classList.remove("active");
       currentSlideIndex = (index + slidesData.length) % slidesData.length;
       slides[currentSlideIndex].classList.add("active");
       updateCaption();
     }
 
-    function nextSlide() { goToSlide(currentSlideIndex + 1); }
-    function prevSlide() { goToSlide(currentSlideIndex - 1); }
+    function nextSlide() {
+      goToSlide(currentSlideIndex + 1);
+    }
+
+    function prevSlide() {
+      goToSlide(currentSlideIndex - 1);
+    }
 
     function startAutoSlide() {
       stopAutoSlide();
@@ -882,6 +945,27 @@
       prevSlide();
       startAutoSlide();
     });
+	
+	/***********************
+	 * SNOWFALL ANIMATION
+	 ***********************/
+	function createSnowflake() {
+	  const snowflake = document.createElement("div");
+	  snowflake.classList.add("snowflake");
+	  snowflake.textContent = "✧˖°.";
+
+	  snowflake.style.left = Math.random() * window.innerWidth + "px";
+	  const size = Math.random() * 15 + 10;
+	  snowflake.style.fontSize = size + "px";
+	  const duration = Math.random() * 10 + 12;
+	  snowflake.style.animationDuration = duration + "s";
+	  snowflake.style.opacity = Math.random() * 0.7 + 0.3;
+
+	  document.body.appendChild(snowflake);
+	  setTimeout(() => snowflake.remove(), duration * 1000);
+	}
+
+	setInterval(createSnowflake, 300);
 
     /***********************
      * CALENDAR (January 2026)
@@ -896,10 +980,10 @@
         : ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
       const year = 2026;
-      const monthIndex = 0;
+      const monthIndex = 0; // January
       const highlightDay = 23;
 
-      daysOfWeek.forEach(dayName => {
+      daysOfWeek.forEach((dayName) => {
         const el = document.createElement("div");
         el.className = "calendar-day-name";
         el.textContent = dayName;
@@ -919,34 +1003,41 @@
         const dayEl = document.createElement("div");
         dayEl.className = "calendar-day";
         dayEl.textContent = day;
-        if (day === highlightDay) dayEl.classList.add("highlight");
+        if (day === highlightDay) {
+          dayEl.classList.add("highlight");
+        }
         calendarGrid.appendChild(dayEl);
       }
     }
 
     /***********************
-     * SNOWFALL (emoji-based)
+     * Date Countdown
      ***********************/
-    function createSnowflake() {
-      const snowflake = document.createElement("div");
-      snowflake.classList.add("snowflake");
-      snowflake.textContent = "❄"; // swap to "❤" or "🫧" if you want
+	
+    function updateCountdown() {
+      const el = document.getElementById("countdown");
+      if (!el) return;
 
-      snowflake.style.left = Math.random() * window.innerWidth + "px";
+      const targetDate = new Date("2026-01-23T16:00:00");
+      const now = new Date();
+      const diff = targetDate - now;
 
-      const size = Math.random() * 12 + 8;
-      snowflake.style.fontSize = size + "px";
+      if (diff <= 0) {
+        el.textContent = translations[currentLang].weddingDayMsg;
+        return;
+      }
 
-      const duration = Math.random() * 8 + 10; // slower
-      snowflake.style.animationDuration = duration + "s";
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const mins = Math.floor((diff / (1000 * 60)) % 60);
+      const secs = Math.floor((diff / 1000) % 60);
 
-      snowflake.style.opacity = Math.random() * 0.7 + 0.3;
+      const textEn = `${translations.en.countdownPrefix} ${days} Days ${hours} Hours ${mins} Minutes ${secs} Seconds`;
+      const textZh = `${translations.zh.countdownPrefix} ${days}天 ${hours}小时 ${mins}分钟 ${secs}秒`;
 
-      document.body.appendChild(snowflake);
-      setTimeout(() => snowflake.remove(), duration * 1000);
+      el.textContent = currentLang === "zh" ? textZh : textEn;
     }
 
-    setInterval(createSnowflake, 350);
 
     /***********************
      * MUSIC AUTOPLAY + TOGGLE
@@ -955,23 +1046,24 @@
     const musicToggle = document.getElementById("music-toggle");
     const musicLabel = musicToggle.querySelector(".music-label");
 
-    async function tryAutoplay() {
-      try {
-        await bgMusic.play();
-        musicToggle.classList.remove("paused");
-        musicLabel.textContent = translations[currentLang].musicPause;
-      } catch (err) {
-        const unlock = () => {
-          bgMusic.play();
-          musicToggle.classList.remove("paused");
-          musicLabel.textContent = translations[currentLang].musicPause;
-          document.removeEventListener("click", unlock);
-          document.removeEventListener("touchstart", unlock);
-        };
-        document.addEventListener("click", unlock, { once: true });
-        document.addEventListener("touchstart", unlock, { once: true });
-      }
-    }
+	async function tryAutoplay() {
+	  try {
+		await bgMusic.play();
+		musicToggle.classList.remove("paused");
+		musicLabel.textContent = translations[currentLang].musicPause;
+	  } catch (err) {
+		const unlock = () => {
+		  bgMusic.play();
+		  musicToggle.classList.remove("paused");
+		  musicLabel.textContent = translations[currentLang].musicPause;
+		  document.removeEventListener("click", unlock);
+		  document.removeEventListener("touchstart", unlock);
+		};
+
+		document.addEventListener("click", unlock, { once: true });
+		document.addEventListener("touchstart", unlock, { once: true });
+	  }
+	}
 
     musicToggle.addEventListener("click", () => {
       if (bgMusic.paused) {
@@ -993,11 +1085,10 @@
       buildCalendar();
       startAutoSlide();
       tryAutoplay();
-
       applyTranslations(); // default EN
-
-      updateCountdown();
-      setInterval(updateCountdown, 1000);
+	  // 🔥 start countdown
+	  updateCountdown();
+	  setInterval(updateCountdown, 1000);
 
       document.getElementById("lang-en").addEventListener("click", () => {
         currentLang = "en";
